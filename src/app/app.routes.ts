@@ -1,14 +1,36 @@
 import { NgModule } from '@angular/core';
 import {  RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ServiceComponent } from './pages/service/service.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ShippingCarComponent } from './pages/shipping-car/shipping-car.component';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
-  { path: 'service', loadChildren: () => import('./service/service.module').then(m => m.ServiceModule) },
-  { path: 'shopping-cart', loadChildren: () => import('./shopping-card/shopping-card.module').then(m => m.ShoppingCardModule) },
+
+
+  {
+    path: 'home', component: HomeComponent
+  },
+
+  {
+    path: 'product', component: ProductComponent
+  },
+
+  {
+    path: 'service', component: ServiceComponent
+  },
+
+  {
+    path: 'shipping-card', component: ShippingCarComponent
+  },
+
+  //routes secondaries
+  //  { path: 'home', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
+
+   //standalone
+  //  { path: 'add-user', loadComponent: ()=> import('./..... add-user.component').then(c => c.AddUserComponent)}
+
 ];
 
 @NgModule({

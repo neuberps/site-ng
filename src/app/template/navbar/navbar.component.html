@@ -1,0 +1,154 @@
+  <div class="humberger__menu__overlay"></div>
+  <div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+      <a href="#"><img src="./assets/img/logo.png" alt=""></a>
+    </div>
+    <div class="humberger__menu__cart">
+      <ul>
+        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+      </ul>
+      <div class="header__cart__price">item: <span>$150.00</span></div>
+    </div>
+    <div class="humberger__menu__widget">
+      <div class="header__top__right__language">
+        <img src="./assets/img/language.png" alt="">
+        <div>English</div>
+        <span class="arrow_carrot-down"></span>
+        <ul>
+          <li><a href="#">Spanis</a></li>
+          <li><a href="#">English</a></li>
+        </ul>
+      </div>
+      <div class="header__top__right__auth">
+        <a href="#"><i class="fa fa-user"></i> Login</a>
+      </div>
+    </div>
+  </div>
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="header__top__left">
+              <ul>
+                <li><i class="fa fa-envelope"></i>Email: Exemplo.com.br</li>
+                <li>Frete grátis para pedidos acima de R$99</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="header__top__right">
+              <div class="header__top__right__social">
+                <ul>
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                </ul>
+              </div>
+
+              <div class="header__top__right__language">
+                <img src="./assets/img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                  <li><a href="#">Spanis</a></li>
+                  <li><a href="#">English</a></li>
+                </ul>
+              </div>
+              <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="header__logo">
+            <a href="./index.html"><img src="./assets/img/logo.png" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="header__menu">
+            <ul>
+              <li><a class="no-underline" routerLink="/home">Home</a></li>
+              <li><a class="no-underline" routerLink="/product">Produtos</a></li>
+              <li><a class="no-underline" routerLink="/service">Serviços</a></li>
+              <li><a>Pages</a>
+                <ul class="header__menu__dropdown">
+                  <li><a href="./shop-details.html">Detalhe da Compra</a></li>
+                  <li><a class="no-underline" routerLink="shipping-card">Carrinho de Compra</a></li>
+                  <li><a href="./checkout.html">Check Out</a></li>
+                  <li><a href="./blog-details.html">Pedidos</a></li>
+                </ul>
+              </li>
+              <!-- <li><a href="./contact.html">Contato</a></li> -->
+            </ul>
+          </nav>
+        </div>
+        <div class="col-lg-3">
+          <div class="header__cart">
+            <ul>
+              <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+              <li><a  routerLink="shipping-card"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>R$150.00</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="humberger__open">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="hero__categories hero__categories__all menu__active" >
+              <div class="dropdown" >
+                  <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-bars"></i>
+                      <span>Acesso Rápido</span>
+                  </button>
+                  <ul class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+                      <li><a class="dropdown-item" href="#">Produtos</a></li>
+                      <li><a class="dropdown-item" href="#">Serviços</a></li>
+                      <li><a class="dropdown-item" href="#">Pedidos</a></li>
+                      <li><a class="dropdown-item" href="#">Carrinho</a></li>
+                      <li><a class="dropdown-item" href="#">Contato</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+        <div class="col-lg-9">
+          <div class="hero__search">
+            <div class="hero__search__form">
+              <form action="#">
+                <div class="hero__search__categories">
+                  Todas Categorias
+                  <span class="arrow_carrot-down"></span>
+                </div>
+                <input type="text" placeholder="O que quer buscar?">
+                <button type="submit" class="site-btn">Busca</button>
+              </form>
+            </div>
+            <div class="hero__search__phone">
+              <div class="hero__search__phone__icon">
+                <i class="fa fa-phone"></i>
+              </div>
+              <div class="hero__search__phone__text">
+                <h5>(11)3939.5674</h5>
+                <span>suporte 24hrs </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
