@@ -9,3 +9,11 @@ button:hover{
   color: #7fad39;
   border: 1px solid #7fad39;
 }
+
+span{
+  color: grey;
+}
+.categoria{
+  color: black;
+  font-weight: bold;
+}

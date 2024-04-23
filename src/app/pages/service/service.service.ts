@@ -12,31 +12,31 @@ export class ServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  create(service: Service): Observable<Service>{
-    return this.httpClient.post<Service>(`${this.API_Spring}`, service);
-  }
+  // create(service: Service): Observable<Service>{
+  //   return this.httpClient.post<Service>(`${this.API_Spring}`, service);
+  // }
 
-  update(service: Service): Observable<any>{
-    return this.httpClient.put<Service>(`${this.API_Spring}/${service.id}`, service);
-  }
+  // update(service: Service): Observable<any>{
+  //   return this.httpClient.put<Service>(`${this.API_Spring}/${service.id}`, service);
+  // }
 
   findAll(): Observable<Service[]>{
-    return this.httpClient.get<Service[]>(`${this.API_Spring}`);
+    return this.httpClient.get<Service[]>(this.API_Spring);
   }
 
-  findById(id: String): Observable<Service>{
-    return this.httpClient.get<any>(`${this.API_Spring}/getId/${id}`);
-  }
+  // findById(id: String): Observable<Service>{
+  //   return this.httpClient.get<any>(`${this.API_Spring}/getId/${id}`);
+  // }
 
-  findByName(name: String): Observable<Service>{
-    return this.httpClient.get<any>(`${this.API_Spring}/getName/${name}`);
-  }
+  // findByName(name: String): Observable<Service>{
+  //   return this.httpClient.get<any>(`${this.API_Spring}/getName/${name}`);
+  // }
 
-  findByCategory(category: String): Observable<Service>{
-    return this.httpClient.get<any>(`${this.API_Spring}/getCategory/${category}`);
-  }
+  // findByCategory(category: String): Observable<Service>{
+  //   return this.httpClient.get<any>(`${this.API_Spring}/getCategory/${category}`);
+  // }
 
-  delete(service: Service): Observable<any>{
-    return this.httpClient.delete<any>(`${this.API_Spring}/${service.id}`);
-  }
+  // delete(service: Service): Observable<any>{
+  //   return this.httpClient.delete<any>(`${this.API_Spring}/${service.id}`);
+  // }
 }
