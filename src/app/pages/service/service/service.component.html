@@ -1,7 +1,5 @@
 <div id="meuContainer" class="container mt-2">
   <div class="row g-5 my-2 container-fluid">
-
-    <!-- testando a listagem de serviços do BD -->
     <div *ngFor="let service of services" class="col-3 h-25">
         <div class="card m-0 shadow ">
           <div class="ratio ratio-4x3">
@@ -11,7 +9,7 @@
             <h5 class="card-title">{{service.name}}</h5>
             <p class="categoria">Categoria: <span>{{service.category}}</span></p>
             <p class="card-text block-with-text">{{service.description}}</p>
-            <button class="btn" id="btn">Adicionar Serviço</button>
+            <button class="btn">Adicionar Serviço</button>
           </div>
         </div>
     </div>
