@@ -2,16 +2,16 @@
   <div class="row g-5 my-2 container-fluid">
 
     <!-- testando a listagem de serviços do BD -->
-    <div *ngFor="let service of services" class="col-3" style="height: 500px;">
-        <div class="card m-2 shadow">
+    <div *ngFor="let service of services" class="col-3 h-25">
+        <div class="card m-0 shadow ">
           <div class="ratio ratio-4x3">
-            <img ngSrc="/assets/img/service/{{service.image}}" width="50" height="100" class="card-img-top">
+            <img ngSrc="/assets/img/service/{{service.image}}" width="50" height="100" class="card-img-top" priority>
           </div>
           <div class="card-body">
             <h5 class="card-title">{{service.name}}</h5>
             <p class="categoria">Categoria: <span>{{service.category}}</span></p>
-            <p class="card-text">{{service.description}}</p>
-            <button class="btn btn-add">Adicionar Serviço</button>
+            <p class="card-text block-with-text">{{service.description}}</p>
+            <button class="btn" id="btn">Adicionar Serviço</button>
           </div>
         </div>
     </div>

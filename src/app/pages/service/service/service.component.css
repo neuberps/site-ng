@@ -2,6 +2,8 @@ button{
   background-color: #7fad39;
   border: 1px solid #7fad39;
   color: white;
+  position: relative;
+
 }
 
 button:hover{
@@ -10,10 +12,30 @@ button:hover{
   border: 1px solid #7fad39;
 }
 
+#btn{
+
+}
+
 span{
   color: grey;
 }
 .categoria{
   color: black;
   font-weight: bold;
+}
+
+.block-with-text {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  text-align: justify;
+  height: 210px;
+}
+
+.card{
+  width: 300px;
+  height: 600px;
+}
+#meuContainer{
+  text-align: center;
 }
