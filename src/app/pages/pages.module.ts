@@ -6,22 +6,24 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service.component';
 import { ProductComponent } from './product/product.component';
-import { ShippingCarComponent } from './shopping-card/shopping-card.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ServiceComponent,
-    ProductComponent,
-    ShippingCarComponent,
-    LoginComponent
+    LoginComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    RouterModule
+    RouterModule,
+  ],
+  providers:[
+    HttpClientModule
   ]
 })
 export class PagesModule { }

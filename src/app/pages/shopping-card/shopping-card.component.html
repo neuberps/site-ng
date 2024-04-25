@@ -1,1 +1,94 @@
-<p>shopping-card works!</p>
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad" >
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="shoping__cart__table">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th class="shoping__product">Products</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let product of cart">
+                              <td class="shoping__cart__item">
+                                  <h5>{{product.name}}</h5>
+                              </td>
+                              <td class="shoping__cart__price">
+                                  {{product.price}}
+                              </td>
+                              <td class="shoping__cart__quantity">
+                                  <div class="row ">
+                                      <div class="col">
+                                          <button type="button" (click)="onclickAdd(product)" class="btn btn-primary">
+                                              <i class="bi bi-plus"></i>
+                                          </button>
+                                      </div>
+                                     <div class="col-5">
+                                      <p  class="bg-light pt-1 pb-2" >{{product.quantity}}</p>
+                                     </div>
+                                        <div class="col">
+                                          <button *ngIf="product.quantity > 1 ; else valoBtn " type="button" (click)="onclickSub(product)" class="btn btn-primary">
+                                              <i class="bi bi-dash"></i>
+                                          </button>
+                                          <ng-template  #valoBtn>
+                                              <button class="btn btn-danger" type="button" (click)="onclickSub(product)" >
+                                                  <i class="bi bi-trash"></i>
+                                              </button>
+                                              </ng-template>
+                                        </div>
+                                  </div>
+                              </td>
+                              <td class="shoping__cart__total">
+                                  {{totalProd(product) | currency}}
+                              </td>
+                              <td class="shoping__cart__item__close">
+                                  <span class="icon_close"></span>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="shoping__cart__btns">
+                  <a routerLink="/product" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="shoping__continue">
+                  <div class="shoping__discount">
+                      <h5>Discount Codes</h5>
+                      <form >
+                          <input type="text" class="form-control" id="cupom"
+                           required [(ngModel)]="cupom" name="cupom">
+                          <button type="submit" (click)="aplicarDesc(cupom)" class="site-btn">APPLY COUPON</button>
+
+                        </form>
+                        <p class=" text-success mt-2 cursor" (click)="cupomAplicado = false" role="alert" *ngIf="cupomAplicado">
+                          Desconto aplicado com sucesso...
+                        </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="shoping__checkout">
+                  <h5>Cart Total</h5>
+                  <ul>
+                      <li>Subtotal <span>{{valorTotal | currency}} </span></li>
+                      <li>Total <span>{{totalCDesc | currency}}</span></li>
+                    </ul>
+                  <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Shoping Cart Section End -->
