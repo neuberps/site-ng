@@ -1,0 +1,32 @@
+
+  <div class="container">
+    <div class="container mb-5 text-center">
+      <h1>Category</h1>
+    </div>
+    <div class="container mb-5 centered">
+      <div class="row">
+        <form class="d-flex mb-5" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" [(ngModel)]="searchValue" name="search">
+          <select class="form-select-sm" [(ngModel)]="searchBy" name="search-filter">
+            <option value="">All</option>
+            <option value="type">Tipo</option>
+            <option value="name">Nome</option>
+          </select>
+        </form>
+        <div class="container mt-2">
+          <div class="row g-5 my-2">
+            <div *ngFor="let category of categories | searchFilter: searchValue: searchBy" class="col-3">
+              <div class="card m-2 shadow">
+                <div class="ratio ratio-4x3">
+                  <img src="/assets/CategoryImages/{{category.image}}" class="card-img-top" alt="" style="object-fit:cover">
+                </div>
+              <div class="card-body">
+                <p class="card-type">{{category.type}}</p>
+                <h2 class="card-name text-center">{{category.name}}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

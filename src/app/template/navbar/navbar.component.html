@@ -1,7 +1,7 @@
   <div class="humberger__menu__overlay"></div>
   <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-      <a href="#"><img NgSrc="./assets/img/logo.png" alt=""></a>
+      <a href="#"><img src="./assets/img/logo.png" alt=""></a>
     </div>
     <div class="humberger__menu__cart">
       <ul>
@@ -15,9 +15,7 @@
   </div>
   <header class="header">
     <div class="header__top">
-      <div class="container"><div fxFlex="value%" fxFlexOffset="offsetpx">
-
-      </div>
+      <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <div class="header__top__left">
@@ -47,7 +45,7 @@
                 </ul>
               </div>
               <div class="header__top__right__auth">
-                <a routerLink="/login" class="no-underline"><i class="fa fa-user"></i><b> Entre ou cadastre-se</b></a>
+                <a routerLink="/login" class="no-underline"><i class="fa fa-user"></i> Login</a>
               </div>
             </div>
           </div>
@@ -72,7 +70,7 @@
                   <li><a href="./shop-details.html">Detalhe da Compra</a></li>
                   <li><a class="no-underline" routerLink="shipping-card">Carrinho de Compra</a></li>
                   <li><a href="./checkout.html">Check Out</a></li>
-                  <li><a class="no-underline" routerLink="/order">Pedidos</a></li>
+                  <li><a href="./blog-details.html">Pedidos</a></li>
                 </ul>
               </li>
               <!-- <li><a href="./contact.html">Contato</a></li> -->
@@ -94,10 +92,7 @@
       </div>
     </div>
   </header>
-
-  <!-- Hide in shopping-card component -->
-
-  <section class="hero" *ngIf="!hideComponent()">
+  <section class="hero">
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
@@ -111,14 +106,17 @@
               <ul class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
                 <li><a class="dropdown-item" routerLink="/product">Produtos</a></li>
                 <li><a class="dropdown-item" routerLink="/service">Serviços</a></li>
-                <li><a class="dropdown-item" routerLink="/order">Pedidos</a></li>
+<<<<<<< Updated upstream
+=======
+                <li><a class="dropdown-item" routerLink="/category">Categorias</a></li>
+>>>>>>> Stashed changes
+                <li><a class="dropdown-item" href="#">Pedidos</a></li>
                 <li><a class="dropdown-item" routerLink="shipping-card">Carrinho</a></li>
-                <!-- <li><a class="dropdown-item" href="#">Contato</a></li> -->
+                <li><a class="dropdown-item" href="#">Contato</a></li>
               </ul>
             </div>
           </div>
         </div>
-
         <div class="col-lg-9">
           <div class="hero__search">
             <div class="hero__search__form">
@@ -142,9 +140,6 @@
             </div>
           </div>
         </div>
-
-        <!-- End -->
-
       </div>
     </div>
   </section>
