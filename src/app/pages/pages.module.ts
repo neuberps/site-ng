@@ -9,8 +9,6 @@ import { ProductComponent } from './product/product.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
