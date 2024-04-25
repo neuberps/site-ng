@@ -5,11 +5,7 @@ import { ServiceComponent } from './pages/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
-<<<<<<< Updated upstream
-import { PaymentComponent } from './pages/payment/payment.component';
-=======
 import { CategoriesComponent } from './pages/categories/categories.component';
->>>>>>> Stashed changes
 
 
 export const routes: Routes = [
@@ -35,13 +31,8 @@ export const routes: Routes = [
     path: 'shipping-card', component: ShoppingCardComponent
   },
   {
-<<<<<<< Updated upstream
-    path: 'payment', component: PaymentComponent
-  },
-=======
     path: 'category', component: CategoriesComponent
   }
->>>>>>> Stashed changes
 
   //routes secondaries
   //  { path: 'home', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },

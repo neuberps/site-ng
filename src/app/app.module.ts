@@ -5,12 +5,8 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
-<<<<<<< Updated upstream
-
-=======
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -20,14 +16,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AppRoutingModule,
     RouterModule,
-<<<<<<< Updated upstream
-    NavbarModule
-
-=======
     NavbarModule,
     PagesModule,
     FormsModule
->>>>>>> Stashed changes
   ]
 })
 export class AppModule { }
