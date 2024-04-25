@@ -3,9 +3,10 @@ import {  RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
-import { ShippingCarComponent } from './pages/shipping-car/shipping-car.component';
+
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 
 
 
@@ -43,7 +44,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'shipping-card', component: ShippingCarComponent
+    path: 'shopping-card', component: ShoppingCardComponent
   },
 
   //routes secondaries
