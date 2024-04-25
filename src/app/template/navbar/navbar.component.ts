@@ -11,11 +11,10 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) { }
+constructor(private router: Router) { }
 
-  hideComponent():  boolean {
-    const url = this.router.url;
-    return url === '/login' || url === '/signup';
-  }
-
+hideComponent():  boolean {
+  const url = this.router.url;
+  return url === '/login' || url === '/signup';
+}
 }

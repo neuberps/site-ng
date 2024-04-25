@@ -1,7 +1,7 @@
   <div class="humberger__menu__overlay"></div>
   <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-      <a href="#"><img src="./assets/img/logo.png" alt=""></a>
+      <a href="#"><img NgSrc="./assets/img/logo.png" alt=""></a>
     </div>
     <div class="humberger__menu__cart">
       <ul>
@@ -15,7 +15,9 @@
   </div>
   <header class="header">
     <div class="header__top">
-      <div class="container">
+      <div class="container"><div fxFlex="value%" fxFlexOffset="offsetpx">
+
+      </div>
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <div class="header__top__left">
@@ -35,7 +37,6 @@
                   <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
                 </ul>
               </div>
-
               <div class="header__top__right__language">
                 <img src="./assets/img/language.png" alt="">
                 <div>English</div>
@@ -71,7 +72,7 @@
                   <li><a href="./shop-details.html">Detalhe da Compra</a></li>
                   <li><a class="no-underline" routerLink="shipping-card">Carrinho de Compra</a></li>
                   <li><a href="./checkout.html">Check Out</a></li>
-                  <li><a href="./blog-details.html">Pedidos</a></li>
+                  <li><a class="no-underline" routerLink="/order">Pedidos</a></li>
                 </ul>
               </li>
               <!-- <li><a href="./contact.html">Contato</a></li> -->
@@ -82,7 +83,7 @@
           <div class="header__cart">
             <ul>
               <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-              <li><a  routerLink="shipping-card"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+              <li><a routerLink="shipping-card"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>R$150.00</span></div>
           </div>
@@ -100,22 +101,23 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
-          <div class="hero__categories hero__categories__all menu__active" >
-              <div class="dropdown" >
-                  <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-bars"></i>
-                      <span>Acesso Rápido</span>
-                  </button>
-                  <ul class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-                      <li><a class="dropdown-item" routerLink="/product">Produtos</a></li>
-                      <li><a class="dropdown-item"  routerLink="/service">Serviços</a></li>
-                      <li><a class="dropdown-item" href="#">Pedidos</a></li>
-                      <li><a class="dropdown-item"  routerLink="shipping-card">Carrinho</a></li>
-                      <li><a class="dropdown-item" href="#">Contato</a></li>
-                  </ul>
-              </div>
+          <div class="hero__categories hero__categories__all menu__active">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+                <span>Acesso Rápido</span>
+              </button>
+              <ul class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+                <li><a class="dropdown-item" routerLink="/product">Produtos</a></li>
+                <li><a class="dropdown-item" routerLink="/service">Serviços</a></li>
+                <li><a class="dropdown-item" routerLink="/order">Pedidos</a></li>
+                <li><a class="dropdown-item" routerLink="shipping-card">Carrinho</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Contato</a></li> -->
+              </ul>
+            </div>
           </div>
-      </div>
+        </div>
 
         <div class="col-lg-9">
           <div class="hero__search">
@@ -140,6 +142,9 @@
             </div>
           </div>
         </div>
+
+        <!-- End -->
+
       </div>
     </div>
   </section>

@@ -21,6 +21,7 @@ export const routes: Routes = [
   },
 
   {
+
     path: 'signup', component: SignupComponent
   },
 
@@ -33,6 +34,7 @@ export const routes: Routes = [
  */
 
   {
+
     path: 'product', component: ProductComponent
   },
 

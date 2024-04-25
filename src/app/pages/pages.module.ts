@@ -6,7 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service.component';
 import { ProductComponent } from './product/product.component';
-import { ShippingCarComponent } from './shipping-car/shipping-car.component';
+import { ShippingCarComponent } from './shopping-card/shopping-card.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -15,8 +16,8 @@ import { ShippingCarComponent } from './shipping-car/shipping-car.component';
     HomeComponent,
     ServiceComponent,
     ProductComponent,
-    ShippingCarComponent
-
+    ShippingCarComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
