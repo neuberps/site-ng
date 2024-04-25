@@ -4,6 +4,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ShippingCarComponent } from './pages/shipping-car/shipping-car.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+
 
 
 export const routes: Routes = [
@@ -12,6 +15,22 @@ export const routes: Routes = [
   {
     path: 'home', component: HomeComponent
   },
+
+  {
+    path: 'login', component: LoginComponent
+  },
+
+  {
+    path: 'signup', component: SignupComponent
+  },
+
+ /*{
+    path: 'checkout',
+    component: ChecoutComponent,
+    canActivate: [AuthGuard]
+
+  },
+ */
 
   {
     path: 'product', component: ProductComponent
