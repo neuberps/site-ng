@@ -5,6 +5,7 @@ import { ServiceComponent } from './pages/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,9 @@ export const routes: Routes = [
 
   {
     path: 'shipping-card', component: ShoppingCardComponent
+  },
+  {
+    path: 'payment', component: PaymentComponent
   },
 
   //routes secondaries
