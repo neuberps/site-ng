@@ -9,12 +9,14 @@ import { ProductComponent } from './product/product.component';
 import { ShippingCarComponent } from './shipping-car/shipping-car.component';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
     ServiceComponent,
     ProductComponent,
     ShippingCarComponent
+
   ],
   imports: [
     CommonModule,
