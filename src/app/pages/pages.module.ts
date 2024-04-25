@@ -6,8 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service/service.component';
 import { ProductComponent } from './product/product.component';
-import { ShippingCarComponent } from './shopping-card/shopping-card.component';
 import { LoginComponent } from './login/login.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     ServiceComponent,
     ProductComponent,
-    ShippingCarComponent,
+    ShoppingCardComponent,
     LoginComponent
   ],
   imports: [

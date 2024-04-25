@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'shipping-card', component: ShoppingCardComponent
+    path: 'shopping-card', component: ShoppingCardComponent
   },
 
   //routes secondaries
