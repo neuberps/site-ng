@@ -1,0 +1,42 @@
+@import "../../../../styles_login/variables.css";
+
+.input-wrapper {
+    color: #F5F5F5;
+    font-size: 16px;
+    text-align: start;
+
+    label {
+      margin-bottom: 10px;
+      color: #5f5f5f;
+    }
+
+    .input-content {
+      width: 100%;
+      border-radius: 8px;
+      display: flex;
+    
+
+      .icon {
+        padding: 12px;
+        background-color: #7FAD39;
+        border-radius: 0 8px 8px 0;
+
+        img {
+          height: 20px;
+        }
+      }
+
+      input {
+        border: none;
+        border-radius: 8px 0 0 8px;
+        background-color: #ebebeb;
+        padding: 12px 0 12px 20px;
+        width: 100%;
+      }
+
+    }
+
+
+
+}
+
