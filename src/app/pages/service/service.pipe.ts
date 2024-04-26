@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Service } from './model/service';
 
 @Pipe({
   name: 'service',
@@ -6,8 +7,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ServicePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(services: Service[], searchValue: string): Service[] {
+    if (!services || ! searchValue){
+      return services;
+    } else {
+      return services.filter(service => service.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+    }
   }
 
 }

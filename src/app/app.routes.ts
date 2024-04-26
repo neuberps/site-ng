@@ -5,7 +5,7 @@ import { ServiceComponent } from './pages/service/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ServiceServicesComponent } from './pages/service/service/service-services/service-services.component';
+import { ServiceDetailsComponent } from './pages/service/service/service-details/service-details.component';
 
 
 export const routes: Routes = [
@@ -26,9 +26,9 @@ export const routes: Routes = [
   {
     path: 'service', component: ServiceComponent
   },
-  
+
   {
-    path: 'service-services', component: ServiceServicesComponent
+    path: 'service-details/:id', component: ServiceDetailsComponent
   },
 
   {
