@@ -14,14 +14,14 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
   declarations: [
     HomeComponent,
     ServiceComponent,
-    ProductComponent,
     ShoppingCardComponent,
     LoginComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    RouterModule
+    RouterModule,
+
   ]
 })
 export class PagesModule { }
