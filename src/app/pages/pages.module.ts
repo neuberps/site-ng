@@ -14,7 +14,6 @@ import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
   declarations: [
     HomeComponent,
     ServiceComponent,
-    ProductComponent,
     ShoppingCardComponent,
     LoginComponent
   ],
