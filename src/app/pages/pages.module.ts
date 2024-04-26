@@ -5,14 +5,18 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service.component';
-import { ShippingCarComponent } from './shipping-car/shipping-car.component';
+import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ServiceComponent,
-    ShippingCarComponent
+    ProductComponent,
+    ShoppingCardComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
