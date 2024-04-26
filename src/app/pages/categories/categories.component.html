@@ -13,20 +13,38 @@
             <option value="name">Nome</option>
           </select>
         </form>
-        <div class="container mt-2">
-          <div class="row g-5 my-2">
-            <div *ngFor="let category of categories | searchFilter: searchValue: searchBy" class="col-3">
-              <div class="card m-2 shadow">
-                <div class="ratio ratio-4x3">
-                  <img src="/assets/CategoryImages/{{category.image}}" class="card-img-top" alt="" style="object-fit:cover">
+
+        <div id="meuContainer" class="container mt-2">
+          <div class="row g-5 my-2 container-fluid">
+            <div *ngFor="let category of categories" class="col-3 h-25">
+                <div class="card m-0 shadow cards" (click)="goHome()">
+                  <div class="ratio ratio-4x3">
+                    <img src="/assets/CategoryImages/{{category.image}}" width="50" height="100" class="card-img-top" priority>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{category.name}}</h5>
+                    <p class="categoria">Categoria: <span>{{category.type}}</span></p>
+                  </div>
                 </div>
-              <div class="card-body">
-                <p class="card-type">{{category.type}}</p>
-                <h2 class="card-name text-center">{{category.name}}</h2>
-              </div>
             </div>
           </div>
         </div>
+
+        <!--<div class="container mt-2">
+            <div class="row g-5 my-2">
+              <div *ngFor="let category of categories | searchFilter: searchValue: searchBy" class="col-3">
+                <div class="card m-2 shadow">
+                  <div class="ratio ratio-4x3">
+                    <img src="/assets/CategoryImages/{{category.image}}" class="card-img-top" alt="" style="object-fit:cover">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-type text">{{category.type}}</p>
+                  <h2 class="card-name text-center text">{{category.name}}</h2>
+                </div>
+              </div>
+            </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterLink } from '@angular/router';
 import { ServiceComponent } from './service/service.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -21,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PagesRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    RouterLink
   ]
 })
 export class PagesModule { }
