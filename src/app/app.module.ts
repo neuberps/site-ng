@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
+import { ProductComponent } from './pages/product/product.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NavbarModule } from './template/navbar.module';
     CommonModule,
     AppRoutingModule,
     RouterModule,
-    NavbarModule
+    NavbarModule,
+
 
   ]
 })

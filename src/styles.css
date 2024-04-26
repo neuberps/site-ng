@@ -528,7 +528,7 @@ ol {
 }
 
 .hero {
-	padding-bottom: 50px;
+	padding-bottom: 5px;
 }
 
 .hero.hero-normal {
@@ -1070,6 +1070,7 @@ ol {
 	background: #F3F6FA;
 	padding-top: 70px;
 	padding-bottom: 0;
+
 }
 
 .footer__about {

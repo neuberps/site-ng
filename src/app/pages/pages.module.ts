@@ -5,7 +5,6 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service.component';
-import { ProductComponent } from './product/product.component';
 import { ShippingCarComponent } from './shipping-car/shipping-car.component';
 
 
@@ -13,13 +12,13 @@ import { ShippingCarComponent } from './shipping-car/shipping-car.component';
   declarations: [
     HomeComponent,
     ServiceComponent,
-    ProductComponent,
     ShippingCarComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    RouterModule
+    RouterModule,
+
   ]
 })
 export class PagesModule { }
