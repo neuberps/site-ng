@@ -8,6 +8,7 @@ import { DetailsComponent } from './pages/details/details.component';
 
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 
 export const routes: Routes = [
@@ -46,6 +47,9 @@ export const routes: Routes = [
   {
     path: 'shopping-card', component: ShoppingCardComponent
   },
+  {
+    path: 'category', component: CategoriesComponent
+  }
 
   //routes secondaries
   //  { path: 'home', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
