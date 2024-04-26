@@ -8,13 +8,16 @@ import { ServiceComponent } from './service/service.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+
 
 @NgModule({
   declarations: [
     HomeComponent,
     ServiceComponent,
     ProductComponent,
-    LoginComponent,
+    ShoppingCardComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
