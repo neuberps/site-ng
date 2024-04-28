@@ -4,7 +4,7 @@ import { Service } from '../../model/service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ServiceService } from '../../service.service';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-service-details',

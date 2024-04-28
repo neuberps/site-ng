@@ -1,40 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { Service } from '../model/service';
-import { ServiceService } from '../service.service';
-import { Router, RouterLink, RouterModule } from '@angular/router';
-import { ServiceDetailsComponent } from './service-details/service-details.component';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ServicePipe } from '../service.pipe';
+import { ServiceService } from './service.service';
 
 @Component({
   selector: 'app-service',
   standalone: true,
   templateUrl: './service.component.html',
   styleUrl: './service.component.css',
-  imports:[
-    CommonModule,
-    RouterLink,
-    ServiceDetailsComponent,
-    RouterModule,
-    FormsModule,
-    ServicePipe
-  ]
 })
+
 export class ServiceComponent implements OnInit{
-
-  searchValue: any;
+  searchValue: string = '';
   services: Service[] = [];
+  filteredService: Service[] = []
 
-  constructor(
-    private service: ServiceService,
-    private router: Router
-  ){}
-
+  constructor(private service: ServiceService){}
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(response => this.services = response)
+    this.service.findAll().subscribe(response => {
+      this.services = response;
+      this.filteredService = this.services;
+    })
   }
-
 }

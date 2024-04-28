@@ -1,13 +1,15 @@
 <div id="meuContainer" class="container mt-2">
-  <div class="col-md-12">
-  <form class="d-flex mb-5" role="search">
-    <input class="form-control me-2" type="search"
-    placeholder="Digite o nome do serviço para fazer uma busca"
-    (ngModel)="searchValue" name="Buscar">
-  </form>
-  </div>
-  <div class="row g-5 my-2 container-fluid"  id="container">
-    <div *ngFor="let service of services" class="col-3 h-25">
+    <div *ngFor="let service of services | service: searchValue" class="col-3 h-25">
+      <div class="row g-5 my-2 container-fluid"  id="container">
+
+        <div class="col-md-10">
+          <form class="d-flex mb-1" role="search">
+            <input class="form-control me-4" type="search"
+            placeholder="Digite o nome ou categoria do serviço para fazer uma busca.."
+            [(ngModel)]="searchValue" name="Buscar">
+          </form>
+        </div>
+
         <div class="card m-0 shadow" [routerLink]="['/service-details', service.id]">
           <div class="ratio ratio-4x3">
             <img src="../../../../assets/img/service/{{service.image}}" width="50" height="100" class="card-img-top" priority>
@@ -18,8 +20,8 @@
             <!-- <p class="card-text block-with-text">{{service.description}}</p> -->
           </div>
         </div>
+
     </div>
     <button routerLink="/service" class=""  id="btn">Voltar</button>
   </div>
-  <!-- <button class="" routerlink="['/service-details', service.id]" (click)="viewService()">Ver Serviços</button> -->
 </div>
