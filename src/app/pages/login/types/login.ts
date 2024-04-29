@@ -1,4 +1,7 @@
+import { User } from "../model/user";
+
 export type LoginResponse = {
-  token: string,
-  username: string
+  user: User,
+  token: string;
+
 }
