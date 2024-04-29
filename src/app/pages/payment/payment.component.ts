@@ -23,7 +23,7 @@ export class PaymentComponent {
 
   ngOnInit() {
     this.serivice.getPayment()
-    .subscribe(payment => {
+    .subscribe((payment: Payment[])=> {
       this.payments = payment as Payment[];
       console.log(this.payments);
     });

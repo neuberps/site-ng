@@ -4,8 +4,8 @@ import { CommonModule, CurrencyPipe, NgFor, NgIf, registerLocaleData } from '@an
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import localePt from '@angular/common/locales/pt';
-import { Product } from '../product/model/product';
 import { Cart } from './model/cart';
+import { Product } from '../product/model/product';
 
 registerLocaleData(localePt)
 
