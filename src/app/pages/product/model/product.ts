@@ -10,4 +10,6 @@ export class Product {
   supplier: string='';
   registryUser: string='';
   image: string='';
+  quantity: number = 0;
+
 }
