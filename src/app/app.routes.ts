@@ -7,6 +7,8 @@ import { ProductComponent } from './pages/product/product.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
+import { AuthGuardService } from './pages/login/services/auth-guard.service';
+
 
 
 
@@ -44,7 +46,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'shopping-card', component: ShoppingCardComponent
+    path: 'shopping-card', component: ShoppingCardComponent, canActivate: [AuthGuardService]
   },
 
   //routes secondaries
