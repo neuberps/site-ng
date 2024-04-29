@@ -9,14 +9,15 @@ secondaryBtnText="Conecte-se agora"
 >
 <form [formGroup]="signupForm">
     <app-primary-input
-        formControlName="username"
-        inputName="username"
+        formControlName="name"
+        inputName="name"
         type="text"
         label="Nome Completo"
         placeholder="Ogani Supermercado"
     >
         <img src="/assets/login/email-icon.svg"/>
     </app-primary-input>
+    
     <app-primary-input
         formControlName="email"
         inputName="email"
@@ -26,12 +27,23 @@ secondaryBtnText="Conecte-se agora"
     >
         <img src="/assets/login/email-icon.svg"/>
     </app-primary-input>
+
+    <app-primary-input
+    formControlName="username"
+    inputName="username"
+    type="text"
+    label="Usuário"
+    placeholder=""
+>
+    <img src="/assets/login/email-icon.svg"/>
+    </app-primary-input>
+
     <app-primary-input
         formControlName="password"
         inputName="password"
         type="password"
         label="Senha"
-        
+
     >
     <img src="/assets/login/password-icon.svg"/>
    </app-primary-input>
