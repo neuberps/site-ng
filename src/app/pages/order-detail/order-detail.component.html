@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="card ">
+    <div class="card-header d-flex justify-content-between" style="background-color: #7fad39; color: white;">
+      <div>
+        <h5 >Numero do pedido</h5>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="d-flex justify-content-between">
+    <div class="col-md-5">
+      <div class="card p-3 mb-3">
+        <div class="d-flex justify-content-between p-3 shadow">
+          <div class="card-body align-content-center">
+            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
+          </div>
+          <div class="card-body align-content-center">
+            <p class="card-text"><b>Cebola</b></p>
+            <P> R$: 5,00 </P>
+          </div>
+        </div>
+        <div class="card-header d-flex justify-content-between ">
+          <div class="">
+            Quantidade: 4
+          </div>
+          <div>
+            R$ 20,00
+          </div>
+        </div>
+      </div>
+      <div class="card p-3 mb-3">
+        <div class="d-flex justify-content-between p-3 shadow">
+          <div class="card-body align-content-center">
+            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
+          </div>
+          <div class="card-body align-content-center">
+            <p class="card-text"><b>Laranja</b></p>
+            <P> R$: 5,00 </P>
+          </div>
+        </div>
+        <div class="card-header d-flex justify-content-between ">
+          <div class="">
+            Quantidade: 4
+          </div>
+          <div>
+            R$ 20,00
+          </div>
+        </div>
+      </div>
+      <div class="card p-3 mb-3">
+        <div class="d-flex justify-content-between p-3 shadow">
+          <div class="card-body align-content-center">
+            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
+          </div>
+          <div class="card-body align-content-center">
+            <p class="card-text"><b>Manga</b></p>
+            <P> R$: 5,25 </P>
+          </div>
+        </div>
+        <div class="card-header d-flex justify-content-between ">
+          <div class="">
+            Quantidade: 4
+          </div>
+          <div>
+            R$ 21,00
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-6">
+      <div class="card text-center mb-3 h-100">
+        <div class="card-header">
+          Valor do pedido
+        </div>
+        <div class="card-body text-end align-content-center">
+          <h5 class="card-title my-4">Resumo Pagamento</h5>
+          <p class="card-text">Total dos itens <span> R$ 61,00</span></p>
+          <p class="card-text">Desconto <span> R$ 0,90</span></p>
+          <p class="card-text">Total do pedido <span><b> R$ 70,00</b></span></p>
+          <a href="#" class="btn me-2 text-white my-4" style="background-color: #7fad39;" [routerLink]="['/home']">Voltar a loja</a>
+          <a href="#" class="btn btn-secondary" [routerLink]="['/order']">Voltar a lista</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

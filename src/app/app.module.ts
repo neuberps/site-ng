@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
+import { HttpClientModule } from '@angular/common/http';
+import { OrderService } from './pages/order/service/order.service';
+
+
 
 
 @NgModule({
@@ -12,10 +16,14 @@ import { NavbarModule } from './template/navbar.module';
 
   ],
   imports: [
-    CommonModule,
+
     AppRoutingModule,
     RouterModule,
-    NavbarModule
+    NavbarModule, HttpClientModule,
+
+  ],
+  providers:[
+    OrderService
 
   ]
 })

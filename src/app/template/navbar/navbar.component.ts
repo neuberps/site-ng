@@ -7,14 +7,13 @@ import { Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
 
-constructor(private router: Router) { }
-
-hideComponent():  boolean {
-  const url = this.router.url;
-  return url === '/login' || url === '/signup';
-}
+  hideComponent(): boolean {
+    const url = this.router.url;
+    return url === '/login' || url === '/signup' || url === '/order-detail' || url === '/order';
+  }
 }

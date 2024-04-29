@@ -5,10 +5,11 @@ import { ServiceComponent } from './pages/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
+import { OrderComponent } from './pages/order/order.component';
+import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 
 
 export const routes: Routes = [
-
 
   {
     path: 'home', component: HomeComponent
@@ -28,6 +29,14 @@ export const routes: Routes = [
 
   {
     path: 'shopping-card', component: ShoppingCardComponent
+  },
+
+  {
+    path: 'order', component: OrderComponent
+  },
+
+  {
+    path: 'order-detail', component: OrderDetailComponent
   },
 
   //routes secondaries
