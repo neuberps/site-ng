@@ -528,7 +528,7 @@ ol {
 }
 
 .hero {
-	padding-bottom: 5px;
+	padding-bottom: 50px;
 }
 
 .hero.hero-normal {
@@ -1235,5 +1235,3 @@ ol {
   outline: none !important;
   box-shadow: none !important;
 }
-
-

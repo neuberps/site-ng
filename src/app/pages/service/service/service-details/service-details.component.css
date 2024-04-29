@@ -1,0 +1,43 @@
+#container{
+  text-align: center;
+  justify-content: center;
+}
+
+img{
+  margin-top: 50px;
+  margin: 30px;
+  height: 350px;
+  width: 720px;
+}
+
+button{
+  background-color: #7fad39;
+  border: 1px solid #7fad39;
+  color: white;
+  position: relative;
+  width: 180px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+button:hover{
+  background-color: white;
+  color: #7fad39;
+  border: 1px solid #7fad39;
+}
+h3{
+  margin: 20px 0;
+}
+p{
+  margin: 10px 0;
+  display: flex;
+  font-size: 20px;
+}
+
+div{
+  margin-bottom: 20px;
+
+}
+
