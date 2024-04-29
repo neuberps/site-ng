@@ -26,7 +26,8 @@ export class CartService {
   let existingProduct = this.cartObj.find(p => p.id === product.id);
 
     if (existingProduct) {
-      existingProduct.quantity += 1;
+    existingProduct.quantity += 1
+
     } else {
 
       this.cartObj.push(product);
@@ -50,5 +51,6 @@ export class CartService {
   remove(){
     this.cartObj.pop();
   }
+
 
 }

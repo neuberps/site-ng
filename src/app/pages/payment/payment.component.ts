@@ -22,12 +22,11 @@ export class PaymentComponent {
   constructor(private serivice:ServicesPayment){}
 
   ngOnInit() {
-
     this.serivice.getPayment()
     .subscribe(payment => {
       this.payments = payment as Payment[];
       console.log(this.payments);
     });
-
   }
+
 }

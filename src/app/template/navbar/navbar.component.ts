@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../pages/shopping-card/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,5 +11,15 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  contador: number = 0;
 
+  constructor(private cartService: CartService) { }
+
+  ngOnInit() {
+      this.cartService.currentCount.subscribe(value => {
+      this.contador = value;
+
+      console.log(this.contador)
+    });
+}
 }

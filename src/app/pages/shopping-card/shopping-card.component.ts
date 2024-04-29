@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import localePt from '@angular/common/locales/pt';
 import { Product } from '../product/model/product';
+import { Cart } from './model/cart';
 
 registerLocaleData(localePt)
 
@@ -22,41 +23,47 @@ registerLocaleData(localePt)
 })
 export class ShoppingCardComponent {
 
-  cart: Array<any> = [];
+  cart: Cart = new Cart;
+
   cupom :string ='';
-  novoTotal :number =  this.valorTotal;
-  cupomAplicado : boolean = false;
+
+  novoTotal: number =  this.valorTotal;
+
+  cupomAplicado: boolean = false;
+
 
   constructor(private cartService: CartService , private currencyPipe: CurrencyPipe ) { }
 
   onclickAdd(product: any) {
-    let cartProduct = this.cart.find(p => p.id === product.id);
+ let cartProduct = this.cart.products.find(p => p.id === product.id);
 
     if (cartProduct) {
       cartProduct.quantity++;
-      cartProduct.total = cartProduct.price * cartProduct.quantity;
-       this.cartService.incrementarContador()
+      this.cart.totalCart = cartProduct.price * cartProduct.quantity;
+      this.cartService.incrementarContador();
     } else {
       product.total = product.price;
-      this.cart.push(product);
+      this.cart.products.push(product);
+      this.cartService.incrementarContador();
     }
   }
 
 
   onclickSub(product: any) {
-    let cartProduct = this.cart.find(p => p.id === product.id);
+    let cartProduct = this.cart.products.find(p => p.id === product.id);
 
     if (cartProduct && cartProduct.quantity > 1  ) {
       cartProduct.quantity-- ;
-      cartProduct.total = cartProduct.price * cartProduct.quantity;
+      this.cart.totalCart = cartProduct.price * cartProduct.quantity;
       this.cartService.decrementarContador()
-
     } else if (cartProduct && cartProduct.quantity == 1) {
-      this.cart = this.cart.filter(p => p.id !== product.id);
+      this.cart.products = this.cart.products.filter(p => p.id !== product.id);
+      cartProduct.quantity-- ;
       this.cartService.decrementarContador()
       this.cartService.remove()
     }
   }
+
 
   aplicarDesc(cupom :string){
     this.novoTotal = this.valorTotal;
@@ -68,7 +75,8 @@ export class ShoppingCardComponent {
 
   get valorTotal() {
     let total = 0;
-    for (let product of this.cart) {
+
+    for (let product of this.cart.products) {
       total += product.price * product.quantity;
     }
     return total;
@@ -84,7 +92,7 @@ totalProd(product : Product){
 }
 
   ngOnInit() {
-    this.cartService.currentCart.subscribe(cart => this.cart = cart);
-
+    this.cartService.currentCart.subscribe(cart => this.cart.products = cart);
  }
+
 }
