@@ -8,6 +8,8 @@ import { DetailsComponent } from './pages/details/details.component';
 
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+
 import { ServiceDetailsComponent } from './pages/service/service/service-details/service-details.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { ServiceCategoryComponent } from './pages/service/service/service-category/service-category.component';
@@ -50,6 +52,9 @@ export const routes: Routes = [
   },
   {
     path: 'service-category/:idCategory', component: ServiceCategoryComponent
+  },
+  {
+    path: 'payment', component: PaymentComponent
   },
 
   {

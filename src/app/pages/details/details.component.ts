@@ -5,6 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../product/model/product';
 import { ProductService } from '../product/product.service';
+import { CartService } from '../shopping-card/services/cart.service';
 
 @Component({
   selector: 'app-details',
@@ -25,8 +26,14 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private service: ProductService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private cartService: CartService) {}
 
+
+    addToCart(product: any) {
+      this.cartService.addToCart(product);
+      this.cartService.incrementarContador();
+    }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
