@@ -8,15 +8,6 @@
       </form>
     </div>
     <div *ngFor="let service of services | service: searchValue" class="col-3 h-25">
-      <!-- <div class="row g-5 my-2 container-fluid"  id="container"> -->
-
-        <!-- <div class="col-md-10">
-          <form class="d-flex mb-1" role="search">
-            <input class="form-control me-14" type="search"
-            placeholder="Digite o nome ou categoria do serviço para fazer uma busca.."
-            [(ngModel)]="searchValue" name="Buscar">
-          </form>
-        </div> -->
 
         <div class="card m-0 shadow" [routerLink]="['/service-details', service.id]">
           <div class="ratio ratio-4x3">
@@ -24,13 +15,13 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{service.name}}</h5>
-            <p >Categoria: <span>{{service.category}}</span></p>
-            <!-- <p class="card-text block-with-text">{{service.description}}</p> -->
+            <p >Categoria: <span>{{service.idCategory}}</span></p>
           </div>
         </div>
 
     </div>
+    <!-- <button [routerLink]="['/service-byCategory/:category', service.findByCategory]" class=""  id="btn">Category</button> -->
     <button routerLink="/home" class=""  id="btn">Voltar</button>
   </div>
 </div>
-<!-- </div> -->
+

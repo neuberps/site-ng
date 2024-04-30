@@ -10,6 +10,7 @@ import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.compo
 import { LoginComponent } from './pages/login/login.component';
 import { ServiceDetailsComponent } from './pages/service/service/service-details/service-details.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { ServiceCategoryComponent } from './pages/service/service/service-category/service-category.component';
 
 export const routes: Routes = [
 
@@ -46,6 +47,9 @@ export const routes: Routes = [
 
   {
     path: 'service-details/:id', component: ServiceDetailsComponent
+  },
+  {
+    path: 'service-category/:idCategory', component: ServiceCategoryComponent
   },
 
   {
