@@ -1,4 +1,3 @@
-<p>payment works!</p>
 <div class="container">
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
@@ -41,15 +40,8 @@
         </li>
       </ul>
 
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Código promocional">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Resgatar</button>
-          </div>
-        </div>
-      </form>
-    </div>
+ <!-- Boleto -->
+   </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Endereço de cobrança</h4>
       <form class="needs-validation" novalidate="">
@@ -128,20 +120,25 @@
 
         <h4 class="mb-3">Pagamento</h4>
 
+  <!-- opçoes pagamento-->
+
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
             <input id="credito" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="credito">Cartão de crédito</label>
+            <label class="custom-control-label" for="credito">Cartão </label>
           </div>
           <div class="custom-control custom-radio">
             <input id="debito" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="debito">Cartão de débito</label>
+            <label class="custom-control-label" for="debito">Boleto</label>
           </div>
           <div class="custom-control custom-radio">
             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="paypal">PayPal</label>
+            <label class="custom-control-label" for="paypal">Pix</label>
           </div>
         </div>
+
+
+     <!--Cartao-->
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="cc-nome">Nome no cartão</label>

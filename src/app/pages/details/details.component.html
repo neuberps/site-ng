@@ -13,7 +13,7 @@
               <h4 class="description">Marca: {{product.brand}}</h4>
               <p class="description">{{product.stock}}</p>
               <h1 class="price">{{product.price | currency : 'BRL'}}</h1>
-              <button type="submit" class="btn btn-car"><a routerLink="/checkout">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
+              <button type="submit" class="btn btn-car" ><a routerLink="/shopping-card" (click)="addToCart(product)">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
               <a href="/product" class="btn btn-success">Voltar</a>
             </div>
           </div>
