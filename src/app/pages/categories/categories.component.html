@@ -17,7 +17,7 @@
         <div id="meuContainer" class="container mt-2">
           <div class="row g-5 my-2 container-fluid">
             <div *ngFor="let category of categories | searchFilter: searchValue: searchBy" class="col-3 h-25">
-                <div class="card m-0 shadow cards" (click)="goHome()">
+                <div class="card m-0 shadow cards" (click)="goItem(category)">
                   <div class="ratio ratio-4x3">
                     <img src="/assets/CategoryImages/{{category.image}}" width="50" height="100" class="card-img-top" priority>
                   </div>

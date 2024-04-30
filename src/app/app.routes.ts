@@ -38,8 +38,6 @@ export const routes: Routes = [
   { path: 'details/:id', component: DetailsComponent
 
   },
-
-
   {
     path: 'service', component: ServiceComponent
   },
@@ -47,7 +45,9 @@ export const routes: Routes = [
   {
     path: 'service-details/:id', component: ServiceDetailsComponent
   },
-
+  {
+    path: 'service/:category', component: ServiceComponent
+  },
   {
     path: 'shopping-card', component: ShoppingCardComponent
   },

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterLink} from '@angular/router';
+import { ServiceService } from '../service/service/service.service';
 
 @Component({
   selector: 'app-categories',
@@ -15,6 +16,7 @@ import { Router, RouterModule, RouterLink} from '@angular/router';
 })
 export class CategoriesComponent {
   private categoryService = inject(CategoryService);
+  private serviceService = inject(ServiceService);
 
   searchValue: string = '';
   searchBy: string = '';
@@ -34,8 +36,18 @@ export class CategoriesComponent {
     });
   }
 
+
+
   goHome() {
     this.router.navigate(['/home']);
   }
 
+  goItem(category: Category) {
+    if(category.type === 1) {
+      this.router.navigate(['/service', { id: category.id }]);
+      // serviceService.findByCategory(category.id)
+    } else {
+      this.router.navigate(['/product']);
+    }
+  }
 }

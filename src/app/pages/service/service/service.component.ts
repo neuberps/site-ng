@@ -19,7 +19,7 @@ import { ServicePipe } from './service.pipe';
 export class ServiceComponent implements OnInit{
   searchValue: string = '';
   services: Service[] = [];
-  filteredService: Service[] = []
+  filteredService: Service[] = [];
 
   constructor(private service: ServiceService){}
 
@@ -27,6 +27,13 @@ export class ServiceComponent implements OnInit{
     this.service.findAll().subscribe(response => {
       this.services = response;
       this.filteredService = this.services;
+    })
+  }
+
+  findByCategory(id: string) {
+    this.service.findByCategory(id).subscribe(response => {
+      console.log('teste');
+      return this.filteredService = this.services;
     })
   }
 }
