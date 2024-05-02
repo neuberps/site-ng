@@ -68,7 +68,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'shopping-card', component: ShoppingCardComponent, canActivate: [AuthGuardService]
+    path: 'shopping-card', component: ShoppingCardComponent
   },
 
   {
