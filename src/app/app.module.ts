@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
+import { FormsModule } from '@angular/forms';
+import { PagesModule } from './pages/pages.module';
+
 
 
 @NgModule({
@@ -15,8 +18,9 @@ import { NavbarModule } from './template/navbar.module';
     CommonModule,
     AppRoutingModule,
     RouterModule,
-    NavbarModule
-
+    NavbarModule,
+    PagesModule,
+    FormsModule
   ]
 })
 export class AppModule { }

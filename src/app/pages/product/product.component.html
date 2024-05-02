@@ -1,1 +1,34 @@
-<p>product works!</p>
+<div class="container mt-2">
+  <div class="row g-5 my-2">
+    <div class="col-md-10">
+      <form class="d-flex mb-1" role="search">
+        <input class="form-control me-14" type="search"
+        placeholder="Digite a categoria do produto para fazer uma busca..."
+        [(ngModel)]="searchValue" name="Buscar">
+      </form>
+    </div>
+
+  <div *ngFor="let product of products" class="col-3">
+    <div class="card m-2 shadow">
+      <div class="ratio ratio-4x3">
+      <img src="/assets/img/market/{{product.image}}" class="card-img-top" alt="..." style="object-fit:cover">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="description">{{product.description}}</p>
+        <h2 class="price">{{product.price | currency : 'BRL'}}</h2>
+        <!---<p class="quantity">{{product.quantity}}</p> -->
+
+        <button type="submit" class="btn btn-outline-success"  [routerLink]="['/details', product.id]">Saiba Mais</button>
+
+        <button type="submit"  class="btn btn-link"  ><a routerLink="/shopping-card" (click)="addToCart(product)">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

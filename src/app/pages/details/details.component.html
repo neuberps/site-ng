@@ -1,0 +1,26 @@
+<div class="container mt-2">
+  <div class="row g-4 my-2 mt-2">
+    <div class="col-md-8 mx-auto"> <!-- Llargura máxima do card -->
+      <div class="card m-2 shadow">
+        <div class="row">
+          <div class="col-md-5"> <!-- Largura da coluna da imagem -->
+            <img src="/assets/img/market/{{product.image}}" class="card-img-top" alt="..." style="object-fit: cover">
+          </div>
+          <div class="col-md-7"> <!-- Largura da coluna do conteúdo -->
+            <div class="card-body">
+              <h1 class="card-title">{{product.name}}</h1>
+              <h2 class="description">{{product.description}}</h2>
+              <h4 class="description">Marca: {{product.brand}}</h4>
+              <p class="description">{{product.stock}}</p>
+              <h1 class="price">{{product.price | currency : 'BRL'}}</h1>
+              <button type="submit" class="btn btn-car" ><a routerLink="/shopping-card" (click)="addToCart(product)">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
+              <a href="/product" class="btn btn-success">Voltar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
