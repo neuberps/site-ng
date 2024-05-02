@@ -50,6 +50,18 @@ export class LoginService {
 
   }
 
+  // Método que verifica os dados e transforma:
+
+  public getUserSession(): any {
+    const user = window.sessionStorage.getItem(this.SESSION_USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  }
+
+
   // Método que verifica se o usuário está autenticado na apliação.
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem(this.SESSION_USER_KEY);
