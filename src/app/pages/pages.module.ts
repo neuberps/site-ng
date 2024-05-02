@@ -4,17 +4,14 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterLink, RouterModule } from '@angular/router';
-import { ServiceComponent } from './service/service/service.component';
-import { ProductComponent } from './product/product.component';
-import { LoginComponent } from './login/login.component';
-import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicePipe } from './service/service/service.pipe';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    LoginComponent
+    HomeComponent
+
   ],
   imports: [
     CommonModule,
