@@ -21,7 +21,7 @@ main
   .main-section {
     gap: 8px;
 
-    flex-grow: 0.1;
+    flex-grow: 0.0;
     /*background-color: #EEEEEE;*/
 
     h1 {
@@ -40,11 +40,12 @@ main
 
     img {
       margin-bottom: 8px;
+      width: 44%;
     }
 
     h2 {
-      font-size: 17px;
-      font-weight: bold;
+      font-size: 14px;
+      font-weight:bold;
       margin-bottom: 44px;
 
     }
@@ -101,6 +102,7 @@ main
 
         &.btn-primary {
           background-color: #7FAD39;
+          border: 1px solid white;
           color: white;
           box-shadow: 0px 8px 12px rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
         }
