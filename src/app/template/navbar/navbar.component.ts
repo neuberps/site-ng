@@ -28,8 +28,6 @@ export class NavbarComponent {
   ngOnInit() {
     this.cartService.currentCount.subscribe((value) => {
       this.contador = value;
-
-      console.log(this.contador);
     });
   }
 }

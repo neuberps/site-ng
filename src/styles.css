@@ -1238,6 +1238,10 @@ ol {
   box-shadow: none !important;
 }
 
+/*---------------------
+  Payments
+-----------------------*/
+
 .order-icon {
   width: 30px;
   margin: 0;
@@ -1262,3 +1266,5 @@ ol {
 .card-order-detail {
   height: 80px;
 }
+
+

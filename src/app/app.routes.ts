@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {  RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ServiceComponent } from './pages/service/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
@@ -16,22 +16,22 @@ import { OrderComponent } from './pages/order/order.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 
 export const routes: Routes = [
-
-
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
 
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
 
   {
-
-    path: 'signup', component: SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
 
- /*{
+  /*{
     path: 'checkout',
     component: ChecoutComponent,
     canActivate: [AuthGuard]
@@ -40,56 +40,64 @@ export const routes: Routes = [
  */
 
   {
-
-    path: 'product', component: ProductComponent
+    path: 'product',
+    component: ProductComponent,
   },
 
   {
-    path: 'checkout', component: CheckoutComponent
+    path: 'checkout',
+    component: CheckoutComponent,
   },
 
   {
-    path: 'details', component: DetailsComponent
+    path: 'details',
+    component: DetailsComponent,
   },
 
+  { path: 'details/:id', component: DetailsComponent },
 
-  { path: 'details/:id', component: DetailsComponent
-
+  {
+    path: 'product/:idCategory',
+    component: ProductComponent,
   },
 
   {
-    path: 'product/:idCategory', component: ProductComponent
+    path: 'service',
+    component: ServiceComponent,
   },
 
   {
-    path: 'service', component: ServiceComponent
+    path: 'shopping-card',
+    component: ShoppingCardComponent,
   },
 
   {
-    path: 'shopping-card', component: ShoppingCardComponent, canActivate: [AuthGuardService]
+    path: 'service-details/:id',
+    component: ServiceDetailsComponent,
+  },
+  {
+    path: 'service/:idCategory',
+    component: ServiceComponent,
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
   },
 
   {
-    path: 'service-details/:id', component: ServiceDetailsComponent
-  },
-  {
-    path: 'service/:idCategory', component: ServiceComponent
-  },
-  {
-    path: 'payment', component: PaymentComponent
+    path: 'category',
+    component: CategoriesComponent,
   },
 
   {
-    path: 'category', component: CategoriesComponent
+    path: 'order',
+    component: OrderComponent,
   },
 
   {
-    path: 'order', component: OrderComponent
+    path: 'order-detail',
+    component: OrderDetailComponent,
   },
-
-  {
-    path: 'order-detail', component: OrderDetailComponent
-  }
 ];
 
 @NgModule({
