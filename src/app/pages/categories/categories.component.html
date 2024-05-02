@@ -19,7 +19,7 @@
             <div *ngFor="let category of categories | searchFilter: searchValue: searchBy" class="col-3 h-25">
                 <div class="card m-0 shadow cards" (click)="goItem(category)">
                   <div class="ratio ratio-4x3">
-                    <img src="/assets/img/category/{{category.image}}" width="50" height="100" class="card-img-top" priority>
+                    <img src="/assets/img/category/{{category.image}}" width="50" height="100" class="card-img-top">
                   </div>
                   <div class="card-body">
                     <h5 class="card-title">{{category.name}}</h5>
