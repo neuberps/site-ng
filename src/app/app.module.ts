@@ -9,9 +9,9 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
-import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './pages/product/product.component';
+import { PagesModule } from './pages/pages.module';
+
 
 
 @NgModule({

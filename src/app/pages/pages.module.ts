@@ -6,8 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { RouterLink, RouterModule } from '@angular/router';
 import { ServiceComponent } from './service/service/service.component';
 import { ProductComponent } from './product/product.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { FormsModule } from '@angular/forms';
 import { ServicePipe } from './service/service/service.pipe';
@@ -17,8 +15,7 @@ import { ServicePipe } from './service/service/service.pipe';
     HomeComponent,
     ServiceComponent,
     ProductComponent,
-    ShoppingCardComponent,
-    LoginComponent
+    ShoppingCardComponent
   ],
   imports: [
     CommonModule,
