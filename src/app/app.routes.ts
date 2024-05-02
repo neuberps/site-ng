@@ -54,13 +54,6 @@ export const routes: Routes = [
   {
     path: 'category', component: CategoriesComponent
   }
-
-  //routes secondaries
-  //  { path: 'home', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
-
-   //standalone
-  //  { path: 'add-user', loadComponent: ()=> import('./..... add-user.component').then(c => c.AddUserComponent)}
-
 ];
 
 @NgModule({
