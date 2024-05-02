@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   findByIdCategory(idCategory: String): Observable<Product[]>{
-    return this.http.get<Product[]> (`http://localhost:9006/api/products/getIdCategory/${idCategory}`);
+    return this.http.get<Product[]> (`http://localhost:9006/api/products/findByIdCategory/${idCategory}`);
   }
 
   deleteId( product : Product ) : Observable<any> {
