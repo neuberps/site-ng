@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ServicePipe } from './service.pipe';
-import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-service',
