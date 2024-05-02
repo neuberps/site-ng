@@ -39,6 +39,10 @@ export const routes: Routes = [
 
   },
 
+  {
+    path: 'product/:idCategory', component: ProductComponent
+  },
+
 
   {
     path: 'service', component: ServiceComponent
