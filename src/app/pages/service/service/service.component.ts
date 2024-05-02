@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../model/service';
 import { ServiceService } from './service.service';
@@ -11,12 +12,9 @@ import { ServicePipe } from './service.pipe';
   standalone: true,
   templateUrl: './service.component.html',
   styleUrl: './service.component.css',
-  imports: [
-    CommonModule, FormsModule, RouterModule, ServicePipe
-  ]
+  imports: [CommonModule, FormsModule, RouterModule, ServicePipe],
 })
-
-export class ServiceComponent implements OnInit{
+export class ServiceComponent implements OnInit {
   searchValue: string = '';
   services: Service[] = [];
   filteredService: Service[] = []
