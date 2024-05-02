@@ -44,10 +44,10 @@ export class CategoriesComponent {
 
   goItem(category: Category) {
     if(category.type === 1) {
-      this.router.navigate(['/service', { id: category.id }]);
+      this.router.navigate(['/service', { idCategory: category.id }]);
       // serviceService.findByCategory(category.id)
     } else {
-      this.router.navigate(['/product']);
+      this.router.navigate(['/product', { idCategory: category.id }]);
     }
   }
 }
