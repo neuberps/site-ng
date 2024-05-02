@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +17,4 @@ export class NavbarComponent {
     const url = this.router.url;
     return url === '/login' || url === '/signup' || url === '/order' || url === '/order-detail';
   }
-
 }
-
-
