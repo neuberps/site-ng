@@ -4,17 +4,17 @@ form {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-bottom: 2px;
-  
+  margin-bottom: 36px;
+  height: 65%;
+
 
 
   span {
     font-size: 12px;
     text-decoration: underline;
     color: #7FAD39;
-    text-align:end;
-    cursor: pointer;
-    height: 0.1px;
+    text-align: end;
+
 
   }
 }

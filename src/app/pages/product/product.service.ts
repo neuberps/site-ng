@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from './model/product';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +24,10 @@ export class ProductService {
 
   getById( id: string ) : Observable<Product> {
     return this.http.get<any> (`http://localhost:9006/api/products/getId/${id}`);
+  }
+
+  findByIdCategory(idCategory: String): Observable<Product[]>{
+    return this.http.get<Product[]> (`http://localhost:9006/api/products/findByIdCategory/${idCategory}`);
   }
 
   deleteId( product : Product ) : Observable<any> {

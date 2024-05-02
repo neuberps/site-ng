@@ -1,3 +1,5 @@
+@import 'ngx-toastr/toastr';
+
 html,
 body {
 	height: 100%;
@@ -1235,3 +1237,4 @@ ol {
   outline: none !important;
   box-shadow: none !important;
 }
+

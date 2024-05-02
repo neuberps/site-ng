@@ -1,34 +1,12 @@
-<!-- Carrossel -->
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../../../assets/img/carrossel_market/straw.jpg" class="d-block w-100" alt="..." style="width: 100px; height: 450px">
-    </div>
-    <div class="carousel-item">
-      <img src="../../../assets/img/carrossel_market/lettuce.jpg" class="d-block w-100" alt="..." style="width: 100px; height: 450px">
-    </div>
-    <div class="carousel-item">
-      <img src="../../../assets/img/carrossel_market/apple.jpg" class="d-block w-100" alt="..." style="width: 100px; height: 450px">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
 <div class="container mt-2">
   <div class="row g-5 my-2">
+    <div class="col-md-10">
+      <form class="d-flex mb-1" role="search">
+        <input class="form-control me-14" type="search"
+        placeholder="Digite a categoria do produto para fazer uma busca..."
+        [(ngModel)]="searchValue" name="Buscar">
+      </form>
+    </div>
 
   <div *ngFor="let product of products" class="col-3">
     <div class="card m-2 shadow">
@@ -39,7 +17,7 @@
         <h5 class="card-title">{{product.name}}</h5>
         <p class="description">{{product.description}}</p>
         <h2 class="price">{{product.price | currency : 'BRL'}}</h2>
-
+        <!---<p class="quantity">{{product.quantity}}</p> -->
 
         <button type="submit" class="btn btn-outline-success"  [routerLink]="['/details', product.id]">Saiba Mais</button>
 
