@@ -12,6 +12,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ServiceDetailsComponent } from './pages/service/service/service-details/service-details.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { OrderComponent } from './pages/order/order.component';
+import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
+
+import { DetailOrderComponent } from './pages/detail-order/detail-order.component';
 
 export const routes: Routes = [
 
@@ -59,7 +63,6 @@ export const routes: Routes = [
     path: 'product/:idCategory', component: ProductComponent
   },
 
-
   {
     path: 'service', component: ServiceComponent
   },
@@ -80,6 +83,14 @@ export const routes: Routes = [
 
   {
     path: 'category', component: CategoriesComponent
+  },
+
+  {
+    path: 'order', component: OrderComponent
+  },
+
+  {
+    path: 'order-detail', component: OrderDetailComponent
   }
 ];
 
