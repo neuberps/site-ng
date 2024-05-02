@@ -9,6 +9,8 @@ import { Router, RouterLink } from '@angular/router';
 import { DetailsComponent } from '../details/details.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../shopping-card/services/cart.service';
+
 
 @Component({
   selector: 'app-product',
@@ -33,8 +35,10 @@ export class ProductComponent implements OnInit {
 
 
   constructor(
-    public service: ProductService,
-    public route: ActivatedRoute) {}
+    public route: ActivatedRoute,
+    private service: ProductService,
+    private router: Router,
+    private cartService: CartService) {}
 
     ngOnInit(): void {
       const idCategory = this.route.snapshot.paramMap.get('idCategory')
@@ -51,10 +55,10 @@ export class ProductComponent implements OnInit {
       }
     }
 
-  //addToCart(product: any) {
-    //this.cartService.addToCart(product);
-    //this.cartService.incrementarContador();
-  //}
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.cartService.incrementarContador();
+  }
 
 
 }

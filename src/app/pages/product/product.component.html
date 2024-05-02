@@ -19,9 +19,9 @@
         <h2 class="price">{{product.price | currency : 'BRL'}}</h2>
         <!---<p class="quantity">{{product.quantity}}</p> -->
 
-        <button type="submit" class="btn btn-outline-success" [routerLink]="['/details', product.id]">Saiba Mais</button>
+        <button type="submit" class="btn btn-outline-success"  [routerLink]="['/details', product.id]">Saiba Mais</button>
 
-        <button type="submit"  class="btn btn-link"><a routerLink="/checkout">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
+        <button type="submit"  class="btn btn-link"  ><a routerLink="/shopping-card" (click)="addToCart(product)">Comprar <i class="fa-solid fa-cart-shopping"></i></a></button>
       </div>
     </div>
     <div class="card-body">

@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ServicesService {
+export class ServicesPayment {
 
-  private baseUrl = 'http://localhost:9001/api/payments';
+  private baseUrl = 'http://localhost:9002/api/payments';
 
   constructor(private http: HttpClient) { }
 
-  createPayment(payment: Payment): Observable<object> {
-    return this.http.post(`${this.baseUrl}`, payment);
+  getPayment():Observable<Payment[]>{
+    return this.http.get<Payment[]>(this.baseUrl);
   }
 }
