@@ -15,8 +15,6 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { OrderComponent } from './pages/order/order.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 
-import { DetailOrderComponent } from './pages/detail-order/detail-order.component';
-
 export const routes: Routes = [
 
 
