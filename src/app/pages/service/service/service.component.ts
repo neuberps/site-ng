@@ -25,9 +25,17 @@ export class ServiceComponent implements OnInit{
   constructor(public service: ServiceService, public route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(response => {
-      this.services = response;
-      this.filteredService = this.services;
-    })
+    const idCategory = this.route.snapshot.paramMap.get('idCategory')
+    if(idCategory){
+      this.service.findByIdCategory(idCategory).subscribe(response => {
+        this.services = response;
+        this.filteredService = this.services;
+      })
+    } else {
+      this.service.findAll().subscribe(response => {
+        this.services = response;
+        this.filteredService = this.services;
+      })
+    }
   }
 }
