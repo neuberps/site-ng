@@ -40,14 +40,15 @@ export const routes: Routes = [
   { path: 'details/:id', component: DetailsComponent
 
   },
-
-
   {
     path: 'service', component: ServiceComponent
   },
 
   {
     path: 'service-details/:id', component: ServiceDetailsComponent
+  },
+  {
+    path: 'service/:idCategory', component: ServiceComponent
   },
   {
     path: 'payment', component: PaymentComponent

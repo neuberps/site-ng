@@ -3,7 +3,7 @@ export class Service {
   image!: string;
   name!: string;
   email!: string;
-  category!: string;
+  idCategory!: string;
   status!: boolean;
   description!: string;
   price!: number;

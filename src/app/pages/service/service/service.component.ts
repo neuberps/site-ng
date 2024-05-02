@@ -3,7 +3,7 @@ import { Service } from '../model/service';
 import { ServiceService } from './service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ServicePipe } from './service.pipe';
 
 @Component({
@@ -20,13 +20,22 @@ export class ServiceComponent implements OnInit{
   searchValue: string = '';
   services: Service[] = [];
   filteredService: Service[] = []
+  category: string = '';
 
-  constructor(private service: ServiceService){}
+  constructor(public service: ServiceService, public route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.service.findAll().subscribe(response => {
-      this.services = response;
-      this.filteredService = this.services;
-    })
+    const idCategory = this.route.snapshot.paramMap.get('idCategory')
+    if(idCategory){
+      this.service.findByIdCategory(idCategory).subscribe(response => {
+        this.services = response;
+        this.filteredService = this.services;
+      })
+    } else {
+      this.service.findAll().subscribe(response => {
+        this.services = response;
+        this.filteredService = this.services;
+      })
+    }
   }
 }

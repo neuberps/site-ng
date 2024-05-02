@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterLink} from '@angular/router';
+import { Service } from '../service/model/service';
 
 @Component({
   selector: 'app-categories',
@@ -38,4 +39,12 @@ export class CategoriesComponent {
     this.router.navigate(['/home']);
   }
 
+  goItem(category: Category) {
+    if(category.id) {
+      this.router.navigate(['/service-category/', category.id]);
+      // serviceService.findByCategory(category.id)
+    } else {
+      this.router.navigate(['/product']);
+    }
+  }
 }
