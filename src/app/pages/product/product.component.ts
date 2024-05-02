@@ -7,6 +7,7 @@ import { Product } from './model/product';
 import { ProductService } from './product.service';
 import { Router, RouterLink } from '@angular/router';
 import { DetailsComponent } from '../details/details.component';
+import { CartService } from '../shopping-card/services/cart.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private service: ProductService,
-    private router: Router) {}
+    private router: Router,
+     private cartService: CartService) {}
 
   ngOnInit(): void {
     this.service
@@ -36,10 +38,10 @@ export class ProductComponent implements OnInit {
       .subscribe( response => this.products = response);
   }
 
-  //addToCart(product: any) {
-    //this.cartService.addToCart(product);
-    //this.cartService.incrementarContador();
-  //}
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.cartService.incrementarContador();
+  }
 
 
 }
