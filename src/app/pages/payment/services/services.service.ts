@@ -8,11 +8,29 @@ import { Observable } from 'rxjs';
 })
 export class ServicesPayment {
 
-  private baseUrl = 'http://localhost:9002/api/payments';
-
   constructor(private http: HttpClient) { }
 
-  getPayment():Observable<Payment[]>{
-    return this.http.get<Payment[]>(this.baseUrl);
+  list(){
+    return this.http.get<Payment[]>("http://localhost:9002/api/payments")
+  }
+
+  getByid(id:number){
+    return this.http.get<Payment>(`http://localhost:9002/api/payments/${id}`)
+  }
+
+  create(payment: any){
+    return this.http.post<Payment>(`http://localhost:9002/api/payments`, payment)
+  }
+
+  update(id:string ,payment: any){
+    return this.http.put<Payment>(`http://localhost:9002/api/payments/${id}`, payment)
+  }
+
+  delete(id:string){
+    return this.http.delete<void>(`http://localhost:9002/api/payments/${id}`)
+  }
+
+  getQrCode(valor: string) {
+    return this.http.get('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + valor, {responseType: 'blob'});
   }
 }
