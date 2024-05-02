@@ -9,20 +9,16 @@
     </div>
     <div *ngFor="let service of services | service: searchValue" class="col-3 h-25">
 
-
         <div class="card m-0 shadow" [routerLink]="['/service-details', service.id]">
           <div class="ratio ratio-4x3">
             <img src="../../../../assets/img/service/{{service.image}}" width="50" height="100" class="card-img-top" priority>
           </div>
           <div class="card-body">
             <h5 class="card-title">{{service.name}}</h5>
-            <p>Categoria: <span>{{service.category}}</span></p>
-            <!-- <p class="card-text block-with-text">{{service.description}}</p> -->
+            <p >Categoria: <span>{{service.idCategory}}</span></p>
           </div>
         </div>
-
     </div>
-    <button routerLink="/home" class=""  id="btn">Voltar</button>
   </div>
 </div>
-<!-- </div> -->
+

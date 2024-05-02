@@ -4,7 +4,7 @@ import { Service } from '../model/service';
 import { ServiceService } from './service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ServicePipe } from './service.pipe';
 import { ActivatedRoute} from '@angular/router';
 
@@ -18,9 +18,10 @@ import { ActivatedRoute} from '@angular/router';
 export class ServiceComponent implements OnInit {
   searchValue: string = '';
   services: Service[] = [];
-  filteredService: Service[] = [];
+  filteredService: Service[] = []
+  category: string = '';
 
-  constructor(private service: ServiceService, private route: ActivatedRoute) {}
+  constructor(public service: ServiceService, public route: ActivatedRoute){}
 
   ngOnInit(): void {
     const idCategory = this.route.snapshot.paramMap.get('idCategory')
@@ -35,11 +36,5 @@ export class ServiceComponent implements OnInit {
         this.filteredService = this.services;
       })
     }
-  }
-
-  findByCategory(id: string) {
-    this.service.findByCategory(id).subscribe((response) => {
-      return (this.filteredService = this.services);
-    });
   }
 }

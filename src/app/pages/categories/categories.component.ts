@@ -6,6 +6,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterLink} from '@angular/router';
 import { ServiceService } from '../service/service/service.service';
+import { Service } from '../service/model/service';
 
 @Component({
   selector: 'app-categories',
