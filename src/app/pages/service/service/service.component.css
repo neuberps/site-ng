@@ -1,41 +1,15 @@
-button{
-  background-color: #7fad39;
-  border: 1px solid #7fad39;
-  color: white;
-  position: relative;
-  width: 180px;
-  height: 50px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 1.3em;
-}
-
 #container{
   text-align: center;
   justify-content: center;
-}
-
-button:hover{
-  background-color: white;
-  color: #7fad39;
-  border: 1px solid #7fad39;
 }
 
 span{
   color: grey;
 }
 
-/* .block-with-text {
-  overflow: hidden;
-  position: relative;
-  line-height: 1.2em;
-  text-align: justify;
-  height: 210px;
-} */
-
 .card{
   width: 300px;
-  height: 340px;
+  height: 300px;
 }
 
 
