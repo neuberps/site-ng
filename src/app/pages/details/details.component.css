@@ -1,0 +1,14 @@
+.container img {
+  width: 170%;
+  height: 100%;
+}
+
+.btn-success{
+    align-self: center;
+    background-color: #7FAD39;
+    color: #f2f2f2;
+    width: 100px;
+
+}
+
+

@@ -528,7 +528,7 @@ ol {
 }
 
 .hero {
-	padding-bottom: 5px;
+	padding-bottom: 50px;
 }
 
 .hero.hero-normal {
@@ -1070,6 +1070,7 @@ ol {
 	background: #F3F6FA;
 	padding-top: 70px;
 	padding-bottom: 0;
+
 }
 
 .footer__about {
@@ -1235,7 +1236,6 @@ ol {
   box-shadow: none !important;
 }
 
-
 .order-icon {
   width: 30px;
   margin: 0;
@@ -1257,5 +1257,8 @@ ol {
   font-size: 10px;
 }
 
+.card-order-detail {
+  height: 80px;
+}
 
 

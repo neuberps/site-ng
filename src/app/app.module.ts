@@ -5,10 +5,9 @@ import { AppRoutingModule } from './app.routes';
 
 import { RouterModule } from '@angular/router';
 import { NavbarModule } from './template/navbar.module';
-import { HttpClientModule } from '@angular/common/http';
-import { OrderService } from './pages/order/service/order.service';
-
-
+import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './pages/product/product.component';
 
 
 @NgModule({
@@ -16,15 +15,12 @@ import { OrderService } from './pages/order/service/order.service';
 
   ],
   imports: [
-
+    CommonModule,
     AppRoutingModule,
     RouterModule,
-    NavbarModule, HttpClientModule,
-
-  ],
-  providers:[
-    OrderService
-
+    NavbarModule,
+    PagesModule,
+    FormsModule
   ]
 })
 export class AppModule { }
