@@ -7,6 +7,8 @@ import { Product } from './model/product';
 import { ProductService } from './product.service';
 import { Router, RouterLink } from '@angular/router';
 import { DetailsComponent } from '../details/details.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CartService } from '../shopping-card/services/cart.service';
 
 
@@ -18,25 +20,40 @@ import { CartService } from '../shopping-card/services/cart.service';
     CommonModule,
     RouterLink,
     DetailsComponent,
+    RouterModule,
+    FormsModule
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
 
+  searchValue: string = '';
   products: Product[] = [];
+  filteredService: Product[] = []
+  category: string = '';
 
 
   constructor(
+    public route: ActivatedRoute,
     private service: ProductService,
     private router: Router,
-     private cartService: CartService) {}
+    private cartService: CartService) {}
 
-  ngOnInit(): void {
-    this.service
-      .findAll()
-      .subscribe( response => this.products = response);
-  }
+    ngOnInit(): void {
+      const idCategory = this.route.snapshot.paramMap.get('idCategory')
+      if(idCategory){
+        this.service.findByIdCategory(idCategory).subscribe(response => {
+          this.products = response;
+          this.filteredService = this.products;
+        })
+      } else {
+        this.service.findAll().subscribe(response => {
+          this.products = response;
+          this.filteredService = this.products;
+        })
+      }
+    }
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
