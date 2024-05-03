@@ -1238,3 +1238,33 @@ ol {
   box-shadow: none !important;
 }
 
+/*---------------------
+  Payments
+-----------------------*/
+
+.order-icon {
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  color: #7fad39;
+  align-items: center;
+}
+
+.order-bar {
+  background-color: #7fad39;
+  color:#b2b2b2
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-order {
+  font-size: 10px;
+}
+
+.card-order-detail {
+  height: 80px;
+}
+
+
