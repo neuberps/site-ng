@@ -368,16 +368,25 @@ ol {
 
 .header__top__right__auth {
 	display: inline-block;
+
+  span{
+   font-weight: bold;
+   font-size: 13px;
+   color: #1c1c1c;
+  }
 }
 
 .header__top__right__auth a {
-	display: block;
-	font-size: 14px;
+  margin-left: 10px;
+	display: inline-block;
+	font-size: 13px;
 	color: #1c1c1c;
+  cursor: pointer;
 }
 
 .header__top__right__auth a i {
-	margin-right: 6px;
+	margin-right: 4px;
+  color: #7FAD39;
 }
 
 .header__logo {
