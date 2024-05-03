@@ -11,10 +11,13 @@ import { tap } from 'rxjs';
 export class LoginService {
 
   apiUrl: string = "http://localhost:9008/auth";
-  private SESSION_USER_KEY = 'session_user';
-  private SESSION_TOKEN_KEY = 'session_token';
+
+  // Chaves estáticas da sessão
+  static SESSION_USER_KEY = 'session_user';
+  static SESSION_TOKEN_KEY = 'session_token';
 
   constructor( private httpClient: HttpClient) { }
+
 
   // Método para limpar os dados da sessão
   clean(): void {
@@ -45,30 +48,35 @@ export class LoginService {
 
   // Método privado (Armazena os dados relevantes na sessão do usuário)
   private saveUserDataInSession(token: string, user: User) {
-    sessionStorage.setItem(this.SESSION_TOKEN_KEY, token);
-    sessionStorage.setItem(this.SESSION_USER_KEY, JSON.stringify(user));
+    sessionStorage.setItem(LoginService.SESSION_TOKEN_KEY, token);
+    sessionStorage.setItem(LoginService.SESSION_USER_KEY, JSON.stringify(user));
 
   }
 
-  // Método que verifica os dados e transforma:
-
+  // Método que verifica o usuário na sessão e retorna após converter de Json para Objeto:
   public getUserSession(): any {
-    const user = window.sessionStorage.getItem(this.SESSION_USER_KEY);
+    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
     if (user) {
       return JSON.parse(user);
     }
-
     return {};
   }
 
 
   // Método que verifica se o usuário está autenticado na apliação.
   public isLoggedIn(): boolean {
-    const user = window.sessionStorage.getItem(this.SESSION_USER_KEY);
+    if (typeof window !== 'undefined') {
+    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
     if (user) {
       return true;
     }
+  }
     return false;
+  }
+
+  logout() {
+    sessionStorage.removeItem(LoginService.SESSION_USER_KEY); // Limpando os dados de usuário da sessão.
+    sessionStorage.removeItem(LoginService.SESSION_TOKEN_KEY); // Limpando o token da sessão.
   }
 
   // Método para atualizar a página
