@@ -1,4 +1,4 @@
-<div id="meuContainer" class="container mt-2">
+<div id="meuContainer" class="container mt-2 mb-2">
   <div class="row g-5 my-2 container-fluid" id="container">
     <div class="col-md-10">
       <form class="d-flex mb-1" role="search">
@@ -7,7 +7,7 @@
         [(ngModel)]="searchValue" name="Buscar">
       </form>
     </div>
-    <div *ngFor="let service of services | service: searchValue" class="col-3 h-25">
+    <div *ngFor="let service of services | service: searchValue" class="col-3 h-25 mb-5">
 
         <div class="card m-0 shadow" [routerLink]="['/service-details', service.id]">
           <div class="ratio ratio-4x3">
