@@ -25,7 +25,7 @@ export class OrderService {
   //   );
   // }
 
-  getById (id: string): Observable<Order> {
+  findById (id: string): Observable<Order> {
      return this.http.get<any>(`http://localhost:9007/api/orders/getId/${id}`);
   }
 

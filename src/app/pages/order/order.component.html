@@ -4,9 +4,9 @@
       <thead>
         <tr >
           <th class="tableTitle">Pedido</th>
-          <th class="tableTitle">Valor</th>
+          <!-- <th class="tableTitle">Valor</th> -->
           <th class="tableTitle">Status</th>
-          <th class="tableTitle">Mensagem</th>
+          <th class="tableTitle col-md-5">Mensagem</th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
               {{ order.created | date:'dd/MM/yyyy' }}
             </div>
           </td>
-          <td>{{ order.orderTotal | currency }}</td>
+          <!-- <td>{{ order.orderTotal | currency }}</td> -->
           <td>
             <div>
               <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega" class="order-icon">

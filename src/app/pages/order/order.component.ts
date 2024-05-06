@@ -23,6 +23,8 @@ export class OrderComponent implements OnInit {
 
   orders: Order[] = [];
 
+  
+
   ordersReversed: Order[] = [];
 
   searchValue: any;
@@ -41,5 +43,7 @@ export class OrderComponent implements OnInit {
   aumentarValor() {
     this.valor++;
   }
+
+
 
 }
