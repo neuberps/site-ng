@@ -6,6 +6,7 @@ import { ProductComponent } from '../product/product.component';
 import { Product } from '../product/model/product';
 import { ProductService } from '../product/product.service';
 import { CartService } from '../shopping-card/services/cart.service';
+import { Cart } from '../shopping-card/model/cart';
 
 @Component({
   selector: 'app-details',
@@ -22,6 +23,7 @@ import { CartService } from '../shopping-card/services/cart.service';
 export class DetailsComponent implements OnInit {
 
   product: Product = new Product;
+  cart: Cart = new Cart;
 
 
   constructor(
@@ -42,4 +44,34 @@ export class DetailsComponent implements OnInit {
       .subscribe( response => this.product = response);
     }
   }
+
+  onclickAdd(product: any) {
+    let cartProduct = this.cart.products.find(p => p.id === product.id);
+
+       if (cartProduct) {
+         cartProduct.quantity++;
+         this.cart.totalCart = cartProduct.price * cartProduct.quantity;
+         this.cartService.incrementarContador();
+       } else {
+         product.total = product.price;
+         this.cart.products.push(product);
+         this.cartService.incrementarContador();
+       }
+     }
+
+
+     onclickSub(product: any) {
+       let cartProduct = this.cart.products.find(p => p.id === product.id);
+
+       if (cartProduct && cartProduct.quantity > 1  ) {
+         cartProduct.quantity-- ;
+         this.cart.totalCart = cartProduct.price * cartProduct.quantity;
+         this.cartService.decrementarContador()
+       } else if (cartProduct && cartProduct.quantity == 1) {
+         this.cart.products = this.cart.products.filter(p => p.id !== product.id);
+         cartProduct.quantity-- ;
+         this.cartService.decrementarContador()
+         this.cartService.remove()
+       }
+     }
 }
