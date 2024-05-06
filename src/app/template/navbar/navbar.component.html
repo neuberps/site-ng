@@ -45,9 +45,15 @@
                   <li><a href="#">English</a></li>
                 </ul>
               </div>
-              <div class="header__top__right__auth">
-                <a routerLink="/login" class="no-underline"><i class="fa fa-user"></i> Login</a>
+              <div class="header__top__right__auth" *ngIf="isLoggedIn()">
+               <ng-container>
+                <span> Bem-vindo(a), {{ getUserSession().name }}</span>
+                <a (click)="logout()" class="no-underline"><i class="fa fa-sign-out"></i>Sair</a>
+              </ng-container>
               </div>
+                <div class="header__top__right__auth" *ngIf="!isLoggedIn()">
+                  <a routerLink="/login" class="no-underline"><i class="fa fa-user"></i><b> Entre ou cadastre-se</b></a>
+                </div>
             </div>
           </div>
         </div>

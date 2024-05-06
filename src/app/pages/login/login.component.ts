@@ -41,10 +41,15 @@ export class LoginComponent {
   }
 
   submit() {
+   setTimeout(() => {
    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-    next: () => this.toastService.success("Login feito com sucesso!"),
+    next: () => {
+      this.toastService.success("Login feito com sucesso!");
+      this.router.navigate(["home"]);
+    },
     error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
-   })
+    });
+   }, 3000); // 3000 milissegundos = 3 segundos
   }
 
   navigate() {
