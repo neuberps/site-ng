@@ -87,7 +87,7 @@
                       <li>Subtotal <span>{{valorTotal | currency}} </span></li>
                       <li>Total com desconto <span>{{totalCDesc | currency}}</span></li>
                     </ul>
-                  <a routerLink="/payment" class="primary-btn">IR PARA O CHECKOUT</a>
+                  <a routerLink="/payment" class="primary-btn" (click)="createOrder()">IR PARA O CHECKOUT</a>
               </div>
           </div>
       </div>

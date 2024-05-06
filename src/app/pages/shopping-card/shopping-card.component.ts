@@ -6,36 +6,39 @@ import { RouterLink } from '@angular/router';
 import localePt from '@angular/common/locales/pt';
 import { Cart } from './model/cart';
 import { Product } from '../product/model/product';
+import { OrderService } from '../order/service/order.service';
 
-registerLocaleData(localePt)
+registerLocaleData(localePt);
 
 @Component({
   selector: 'app-shopping-card',
   standalone: true,
-  imports: [NgFor, NgIf , FormsModule, RouterLink , CommonModule],
+  imports: [NgFor, NgIf, FormsModule, RouterLink, CommonModule],
   providers: [
-      { provide: LOCALE_ID, useValue: 'pt' },
-      { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-      CurrencyPipe
-    ],
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    CurrencyPipe,
+  ],
   templateUrl: './shopping-card.component.html',
-  styleUrl: './shopping-card.component.css'
+  styleUrl: './shopping-card.component.css',
 })
 export class ShoppingCardComponent {
+  cart: Cart = new Cart();
 
-  cart: Cart = new Cart;
+  cupom: string = '';
 
-  cupom :string ='';
-
-  novoTotal: number =  this.valorTotal;
+  novoTotal: number = this.valorTotal;
 
   cupomAplicado: boolean = false;
 
-
-  constructor(private cartService: CartService , private currencyPipe: CurrencyPipe ) { }
+  constructor(
+    private cartService: CartService,
+    private currencyPipe: CurrencyPipe,
+    private OrderService: OrderService
+  ) {}
 
   onclickAdd(product: any) {
- let cartProduct = this.cart.products.find(p => p.id === product.id);
+    let cartProduct = this.cart.products.find((p) => p.id === product.id);
 
     if (cartProduct) {
       cartProduct.quantity++;
@@ -48,26 +51,26 @@ export class ShoppingCardComponent {
     }
   }
 
-
   onclickSub(product: any) {
-    let cartProduct = this.cart.products.find(p => p.id === product.id);
+    let cartProduct = this.cart.products.find((p) => p.id === product.id);
 
-    if (cartProduct && cartProduct.quantity > 1  ) {
-      cartProduct.quantity-- ;
+    if (cartProduct && cartProduct.quantity > 1) {
+      cartProduct.quantity--;
       this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-      this.cartService.decrementarContador()
+      this.cartService.decrementarContador();
     } else if (cartProduct && cartProduct.quantity == 1) {
-      this.cart.products = this.cart.products.filter(p => p.id !== product.id);
-      cartProduct.quantity-- ;
-      this.cartService.decrementarContador()
-      this.cartService.remove()
+      this.cart.products = this.cart.products.filter(
+        (p) => p.id !== product.id
+      );
+      cartProduct.quantity--;
+      this.cartService.decrementarContador();
+      this.cartService.remove();
     }
   }
 
-
-  aplicarDesc(cupom :string){
+  aplicarDesc(cupom: string) {
     this.novoTotal = this.valorTotal;
-    if(cupom === "desc" && this.novoTotal > 50){
+    if (cupom === 'desc' && this.novoTotal > 50) {
       this.novoTotal -= 50;
       this.cupomAplicado = true;
     }
@@ -82,17 +85,23 @@ export class ShoppingCardComponent {
     return total;
   }
 
-   get totalCDesc() {
-  return this.cupom === 'desc' ? this.novoTotal : this.valorTotal;
-}
+  get totalCDesc() {
+    return this.cupom === 'desc' ? this.novoTotal : this.valorTotal;
+  }
 
-totalProd(product : Product){
-  let totalproduto = product.quantity * product.price;
-  return totalproduto;
-}
+  totalProd(product: Product) {
+    let totalproduto = product.quantity * product.price;
+    return totalproduto;
+  }
 
   ngOnInit() {
-    this.cartService.currentCart.subscribe(cart => this.cart.products = cart);
- }
+    this.cartService.currentCart.subscribe(
+      (cart) => (this.cart.products = cart)
+    );
+  }
 
+  createOrder() {
+    
+
+  }
 }

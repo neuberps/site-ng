@@ -98,6 +98,17 @@ export const routes: Routes = [
     path: 'order-detail',
     component: OrderDetailComponent,
   },
+
+  {
+    path: 'order-detail/:id',
+    component: OrderDetailComponent
+  },
+
+
+
+
+
+
 ];
 
 @NgModule({
