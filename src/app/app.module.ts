@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeModule } from './home/home.module';
-import { AppRoutingModule } from './app.routes';
-import { RouterModule } from '@angular/router';
-import { NavbarModule } from './template/navbar.module';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-
+import { AppRoutingModule } from './app.routes';
+import { HomeModule } from './home/home.module';
+import { NavbarModule } from './template/navbar.module';
 
 @NgModule({
   declarations: [],
@@ -16,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     NavbarModule,
     FormsModule,
-    HomeModule
-  ]
+    HomeModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

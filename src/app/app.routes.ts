@@ -101,6 +101,17 @@ export const routes: Routes = [
     component: OrderDetailComponent,
     canActivate: [AuthGuardService]
   },
+
+  {
+    path: 'order-detail/:id',
+    component: OrderDetailComponent
+  },
+
+
+
+
+
+
 ];
 
 @NgModule({
