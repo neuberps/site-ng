@@ -1,56 +1,82 @@
+import { Cart } from './../model/cart';
 import { Product } from './../../product/model/product';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
+  cart: Cart = this.getCartSession();
 
-  private cart = new BehaviorSubject<Array<Product>>([]);
+  currentCount = this.cart.products.length;
 
-  private contador = new BehaviorSubject<number>(this.cart.getValue.length);
-
-  cartObj = this.cart.getValue();
-
-
-  currentCart = this.cart.asObservable();
-
-  currentCount = this.contador.asObservable();
-
-
-  constructor() { }
+  constructor() {}
 
   addToCart(product: any) {
-
-  let existingProduct = this.cartObj.find(p => p.id === product.id);
+    let existingProduct = this.cart.products.find((p) => p.id === product.id);
 
     if (existingProduct) {
-    existingProduct.quantity += 1
+      existingProduct.quantity++;
+    } else {
+      this.cart.products.push(product);
+    }
+
+    this.updateCartDataInSession(this.cart.products);
+  }
+
+  removeToCart(product: any) {
+    let existingProduct = this.cart.products.find((p) => p.id === product.id);
+
+    if (existingProduct && existingProduct.quantity > 1) {
+      existingProduct.quantity--;
 
     } else {
 
-      this.cartObj.push(product);
+      delete this.cart.products[product.id];
     }
 
-    this.cart.next(this.cartObj);
+    this.updateCartDataInSession(this.cart.products);
   }
 
-  incrementarContador() {
-    let count = this.contador.getValue();
-    this.contador.next(count + 1);
+  //////////////////////////////////////////
+
+  static SESSION_CARD_KEY = 'session_card';
+
+  public saveCartDataInSession(cart: Cart) {
+    sessionStorage.setItem(CartService.SESSION_CARD_KEY, JSON.stringify(cart));
   }
 
-  decrementarContador() {
-    let count = this.contador.getValue();
-    if(count >= 1 ){
-    this.contador.next(count - 1);
+  public updateCartDataInSession(products: Product[]) {
+    let cart: Cart = this.getCartSession();
+    cart.products = products;
+    cart.totalCart = products.length;
+    sessionStorage.setItem(CartService.SESSION_CARD_KEY, JSON.stringify(cart));
+  }
+
+  removeCart() {
+    sessionStorage.removeItem(CartService.SESSION_CARD_KEY);
+  }
+
+  removeItemKey(itemKey: string) {
+    let parsedCart = this.getCartSession().products;
+
+    let updatedCart = parsedCart.filter((product) => product.id !== itemKey);
+    this.saveCartDataInSession({
+      ...this.getCartSession(),
+      products: updatedCart,
+    });
+
+    this.updateCartDataInSession(updatedCart);
+  }
+
+  public getCartSession(): Cart {
+    if (typeof window !== 'undefined') {
+      const cart = window.sessionStorage.getItem(CartService.SESSION_CARD_KEY);
+      if (cart) {
+        return JSON.parse(cart);
+      }
     }
+
+    return new Cart();
   }
-
-  remove(){
-    this.cartObj.pop();
-  }
-
-
 }

@@ -8,7 +8,6 @@ import { Cart } from '../shopping-card/model/cart';
 import { CartService } from '../shopping-card/services/cart.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormBuilder,FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
-import { identity } from 'rxjs';
 
 registerLocaleData(localePt)
 
@@ -38,7 +37,6 @@ export class PaymentComponent {
       ccnumero: ['', [Validators.required]],
       ccexpiracao: ['', [Validators.required]],
       cccvv: ['',[Validators.required]],
-      idProduct: ['12', [Validators.required]],
       idUser: ['2', [Validators.required]],
       value: [this.totalCart,[Validators.required]],
       paymentMethod: [this.methods],
@@ -46,8 +44,8 @@ export class PaymentComponent {
     });
   }
 
-  methods:string;
-  statusPaid: string ='1';
+  methods:string ;
+  statusPaid: string;
   timeoutId: any;
   qrCodeInputValue ="PIX";
   qrCodeImg: any;
@@ -57,9 +55,7 @@ export class PaymentComponent {
   isLoading:boolean = true;
   btnlg:boolean = true;
 
-
-
-  var = this.cart.products = this.cartService.cartObj;
+  var = this.cart.products = this.cartService.cart.products;
 
   get idproductmethod(): string[] {
     let identities = this.var.map(p => p.id);
@@ -81,6 +77,8 @@ export class PaymentComponent {
   selectedMethod(method: string) {
     this.selectedPaymentMethod = method;
     this.methods= this.selectedPaymentMethod;
+    console.log(this.methods)
+    console.log(this.statusPaid)
   }
 
  cancelSubmit(event: Event){
@@ -89,11 +87,22 @@ export class PaymentComponent {
 
   onSubmit(event: Event) {
   this.cancelSubmit(event)
+  if(this.methods =="tiket"){
+    this.statusPaid='2'
 
-  this.createForm()
-
-   console.log(this.form.value)
+      if(this.statusPaid == '2'){
+      this.form.get('status')?.setValue('2')
+      this.createForm()
   }
+  }else{
+    this.statusPaid='1'
+      if(this.statusPaid == '1'){
+        this.form.get('status')?.setValue('1')
+        this.createForm()
+      }
+
+  }
+}
 
   cancel(event: Event) {
     this.cancelSubmit(event)
@@ -119,7 +128,6 @@ export class PaymentComponent {
       .subscribe(() => {
         this.router.navigate(['/shopping-card']);
       });
-       return this.statusPaid="1";
     }
 
   ngOnInit() {

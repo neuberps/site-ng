@@ -1,7 +1,9 @@
+import { Cart } from './../../pages/shopping-card/model/cart';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../../pages/shopping-card/services/cart.service';
 import { Router, RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,8 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  contador: number = 0;
+
+
 
   constructor(private router: Router, private cartService: CartService) {}
 
@@ -25,9 +28,11 @@ export class NavbarComponent {
     );
   }
 
-  ngOnInit() {
-    this.cartService.currentCount.subscribe((value) => {
-      this.contador = value;
-    });
+  getContador():number{
+   return this.cartService.getCartSession().totalCart;
+  }
+  ngOnInit(){
+
+
   }
 }

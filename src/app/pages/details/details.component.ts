@@ -32,7 +32,7 @@ export class DetailsComponent implements OnInit {
 
     addToCart(product: any) {
       this.cartService.addToCart(product);
-      this.cartService.incrementarContador();
+
     }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

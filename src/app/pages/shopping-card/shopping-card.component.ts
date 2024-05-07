@@ -1,4 +1,4 @@
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { CommonModule, CurrencyPipe, NgFor, NgIf, registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ registerLocaleData(localePt)
 })
 export class ShoppingCardComponent {
 
-  cart: Cart = new Cart;
+  cart: Cart = this.cartService.getCartSession();
 
   cupom :string ='';
 
@@ -35,16 +35,23 @@ export class ShoppingCardComponent {
   constructor(private cartService: CartService , private currencyPipe: CurrencyPipe ) { }
 
   onclickAdd(product: any) {
- let cartProduct = this.cart.products.find(p => p.id === product.id);
+    let cartProduct = this.cart.products.find(p => p.id === product.id);
 
     if (cartProduct) {
+      let totalCart = cartProduct.price * cartProduct.quantity;
+
       cartProduct.quantity++;
-      this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-      this.cartService.incrementarContador();
+
+      this.cartService.addToCart(cartProduct)
+
     } else {
-      product.total = product.price;
+
       this.cart.products.push(product);
-      this.cartService.incrementarContador();
+
+      this.cartService.addToCart(cartProduct)
+
+      let totalCart = product.price * product.quantity;
+
     }
   }
 
@@ -53,14 +60,18 @@ export class ShoppingCardComponent {
     let cartProduct = this.cart.products.find(p => p.id === product.id);
 
     if (cartProduct && cartProduct.quantity > 1  ) {
-      cartProduct.quantity-- ;
-      this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-      this.cartService.decrementarContador()
+      cartProduct.quantity--;
+
+      let totalCart = cartProduct.price * cartProduct.quantity;
+
+      this.cartService.removeToCart(cartProduct)
+
     } else if (cartProduct && cartProduct.quantity == 1) {
-      this.cart.products = this.cart.products.filter(p => p.id !== product.id);
-      cartProduct.quantity-- ;
-      this.cartService.decrementarContador()
-      this.cartService.remove()
+
+      this.cart.products.pop();
+
+      this.cartService.removeItemKey(cartProduct.id)
+
     }
   }
 
@@ -86,13 +97,15 @@ export class ShoppingCardComponent {
   return this.cupom === 'desc' ? this.novoTotal : this.valorTotal;
 }
 
+
+
 totalProd(product : Product){
   let totalproduto = product.quantity * product.price;
   return totalproduto;
 }
 
   ngOnInit() {
-    this.cartService.currentCart.subscribe(cart => this.cart.products = cart);
+
  }
 
 }
