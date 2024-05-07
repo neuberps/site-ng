@@ -68,7 +68,7 @@ export const routes: Routes = [
 
   {
     path: 'shopping-card',
-    component: ShoppingCardComponent,
+    component: ShoppingCardComponent
   },
 
   {

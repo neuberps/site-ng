@@ -79,4 +79,13 @@ export class CartService {
 
     return new Cart();
   }
+
+  get valorTotal() {
+    let total = 0;
+
+    for (let product of this.cart.products) {
+      total += product.price * product.quantity;
+    }
+    return total;
+  }
 }

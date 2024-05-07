@@ -27,7 +27,7 @@
                       <button
                         type="button"
                         (click)="onclickAdd(product)"
-                        class="btn btn-primary"
+                        class="btn btn-success"
                       >
                         <i class="fa-solid fa-plus"></i>
                       </button>
@@ -42,7 +42,7 @@
                         *ngIf="product.quantity > 1; else valoBtn"
                         type="button"
                         (click)="onclickSub(product)"
-                        class="btn btn-primary"
+                        class="btn btn-success"
                       >
                         <i class="fa-solid fa-minus"></i>
                       </button>
@@ -76,7 +76,9 @@
         <div class="shoping__cart__btns">
           <a routerLink="/product" class="primary-btn cart-btn"
             >CONTINUAR COMPRANDO</a
-          >
+          > <a routerLink="/product" class="primary-btn cart-btn ms-3"
+          (click)="removeCart()" >Esvaziar carrinho</a
+        >
         </div>
       </div>
       <div class="col-lg-6">

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { CommonModule, CurrencyPipe, NgFor, NgIf, registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -78,11 +78,12 @@ export class ShoppingCardComponent {
 
   aplicarDesc(cupom :string){
     this.novoTotal = this.valorTotal;
-    if(cupom === "desc" && this.novoTotal > 50){
-      this.novoTotal -= 50;
+    if(cupom === "desc"){
+      this.novoTotal *= 0.9;
       this.cupomAplicado = true;
     }
-  }
+}
+
 
   get valorTotal() {
     let total = 0;
@@ -102,6 +103,10 @@ export class ShoppingCardComponent {
 totalProd(product : Product){
   let totalproduto = product.quantity * product.price;
   return totalproduto;
+}
+
+removeCart(){
+  this.cartService.removeCart();
 }
 
   ngOnInit() {
