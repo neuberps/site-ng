@@ -1,10 +1,10 @@
+import { AuthGuardService } from './pages/login/services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ServiceComponent } from './pages/service/service/service.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { AuthGuardService } from './pages/login/services/auth-guard.service';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { ShoppingCardComponent } from './pages/shopping-card/shopping-card.component';
@@ -82,6 +82,7 @@ export const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent,
+    // canActivate: [AuthGuardService]
   },
 
   {
@@ -92,12 +93,20 @@ export const routes: Routes = [
   {
     path: 'order',
     component: OrderComponent,
+    // canActivate: [AuthGuardService]
   },
 
   {
     path: 'order-detail',
     component: OrderDetailComponent,
+    // canActivate: [AuthGuardService]
   },
+
+  {
+    path: 'order-detail/:id',
+    component: OrderDetailComponent
+  },
+
 ];
 
 @NgModule({

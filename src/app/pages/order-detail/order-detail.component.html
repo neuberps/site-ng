@@ -1,87 +1,46 @@
 <div class="container">
-  <div class="card ">
-    <div class="card-header d-flex justify-content-between" style="background-color: #7fad39; color: white;">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between cardBar">
       <div>
-        <h5 >Numero do pedido</h5>
+        <h5>Pedido: </h5>
       </div>
     </div>
   </div>
   <br>
-  <div class="d-flex justify-content-between shadow">
-    <div class="col-md-5">
-      <div class="card p-3 mb-3">
-        <div class="d-flex justify-content-between p-3 shadow card-order-detail" >
-          <div class="card-body align-content-center">
-            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
-          </div>
-          <div class="card-body align-content-center">
-            <p class="card-text"><b>Cebola</b></p>
-            <P> R$: 5,00 </P>
-          </div>
-        </div>
-        <div class="card-header d-flex justify-content-between ">
-          <div class="">
-            Quantidade: 4
-          </div>
-          <div>
-            R$ 20,00
-          </div>
-        </div>
-      </div>
-      <div class="card p-3 mb-3">
-        <div class="d-flex justify-content-between p-3 shadow card-order-detail">
-          <div class="card-body align-content-center">
-            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
-          </div>
-          <div class="card-body align-content-center">
-            <p class="card-text"><b>Laranja</b></p>
-            <P> R$: 5,00 </P>
-          </div>
-        </div>
-        <div class="card-header d-flex justify-content-between ">
-          <div class="">
-            Quantidade: 4
-          </div>
-          <div>
-            R$ 20,00
-          </div>
-        </div>
-      </div>
-      <div class="card p-3 mb-3">
-        <div class="d-flex justify-content-between p-3 shadow card-order-detail">
-          <div class="card-body align-content-center">
-            <img class="order-icon" src="../../../assets/img/order-component/clock-regular.svg" alt="">
-          </div>
-          <div class="card-body align-content-center">
-            <p class="card-text"><b>Manga</b></p>
-            <P> R$: 5,25 </P>
-          </div>
-        </div>
-        <div class="card-header d-flex justify-content-between ">
-          <div class="">
-            Quantidade: 4
-          </div>
-          <div>
-            R$ 21,00
+  <div class="d-flex justify-content-between shadow mb-4 ">
+    <div class="card-body align-items-center">
+      <div class="row" *ngFor="let item of order?.orderItems; let i = index">
+        <div class="col-md-11 m-4 mb-2 shadow p-0">
+          <div class="mb-3">
+            <div class="d-flex">
+              <p class="pt-4 px-4">{{ i + 1 }}</p>
+              <h6 class="card-text p-4">{{ item.item }}</h6>
+            </div>
+            <div class="d-flex mx-4">
+              <span class="text-muted col-md-5">Preço: {{ item.price.toFixed(2) | currency}}</span>
+              <span class="text-muted col-md-5">Quantidade: {{ item.quantity }}</span>
+              <span class="text-muted col-md-5">Total: {{ (item.price * item.quantity).toFixed(2) | currency}}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class=" col-6 pb-3">
+
+    <div class=" col-6 pb-3 m-4" *ngIf="order">
       <div class="card text-center h-100">
         <div class="card-header">
           Valor do pedido
         </div>
-        <div class="card-body text-end align-content-center">
+        <div class="card-body text-end ">
           <h5 class="card-title my-4">Resumo Pagamento</h5>
-          <p class="card-text">Total dos itens <span> R$ 61,00</span></p>
-          <p class="card-text">Desconto <span> R$ 0,90</span></p>
-          <p class="card-text">Total do pedido <span><b> R$ 70,00</b></span></p>
-          <a href="#" class="btn me-2 text-white my-4" style="background-color: #7fad39;" [routerLink]="['/home']">Voltar a loja</a>
+          <p class="card-text">Quantidade de item(s) <span>: {{ indiceFinalDeI }}</span></p>
+          <p class="card-text">Desconto <span>R$: {{ order.discountsAndFees }}</span></p>
+          <p class="card-text">Total do pedido <span><b>R$: {{ getTotalOrderPrice().toFixed(2) | currency }}</b></span></p>
+          <a href="#" class="btn me-2 text-white my-4" style="background-color: #7fad39;"
+            [routerLink]="['/home']">Voltar a loja</a>
           <a href="#" class="btn btn-secondary" [routerLink]="['/order']">Voltar a lista</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-

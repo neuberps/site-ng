@@ -13,7 +13,7 @@ export class ServicePipe implements PipeTransform {
     if (!products || !searchValue){
       return products;
     } else {
-      return products.filter(product => product.idCategory.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+      return products.filter(product => product.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
     }
   }
 

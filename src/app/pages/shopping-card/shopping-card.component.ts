@@ -6,33 +6,36 @@ import { RouterLink } from '@angular/router';
 import localePt from '@angular/common/locales/pt';
 import { Cart } from './model/cart';
 import { Product } from '../product/model/product';
+import { OrderService } from '../order/service/order.service';
 
-registerLocaleData(localePt)
+registerLocaleData(localePt);
 
 @Component({
   selector: 'app-shopping-card',
   standalone: true,
-  imports: [NgFor, NgIf , FormsModule, RouterLink , CommonModule],
+  imports: [NgFor, NgIf, FormsModule, RouterLink, CommonModule],
   providers: [
-      { provide: LOCALE_ID, useValue: 'pt' },
-      { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-      CurrencyPipe
-    ],
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    CurrencyPipe,
+  ],
   templateUrl: './shopping-card.component.html',
-  styleUrl: './shopping-card.component.css'
+  styleUrl: './shopping-card.component.css',
 })
 export class ShoppingCardComponent {
 
   cart: Cart = this.cartService.getCartSession();
+  cupom: string = '';
 
-  cupom :string ='';
-
-  novoTotal: number =  this.valorTotal;
+  novoTotal: number = this.valorTotal;
 
   cupomAplicado: boolean = false;
 
-
-  constructor(private cartService: CartService , private currencyPipe: CurrencyPipe ) { }
+  constructor(
+    private cartService: CartService,
+    private currencyPipe: CurrencyPipe,
+    private OrderService: OrderService
+  ) {}
 
   onclickAdd(product: any) {
     let cartProduct = this.cart.products.find(p => p.id === product.id);
@@ -55,9 +58,8 @@ export class ShoppingCardComponent {
     }
   }
 
-
   onclickSub(product: any) {
-    let cartProduct = this.cart.products.find(p => p.id === product.id);
+    let cartProduct = this.cart.products.find((p) => p.id === product.id);
 
     if (cartProduct && cartProduct.quantity > 1  ) {
       cartProduct.quantity--;
@@ -75,8 +77,7 @@ export class ShoppingCardComponent {
     }
   }
 
-
-  aplicarDesc(cupom :string){
+  aplicarDesc(cupom: string) {
     this.novoTotal = this.valorTotal;
     if(cupom === "desc"){
       this.novoTotal *= 0.9;
@@ -94,9 +95,9 @@ export class ShoppingCardComponent {
     return total;
   }
 
-   get totalCDesc() {
-  return this.cupom === 'desc' ? this.novoTotal : this.valorTotal;
-}
+  get totalCDesc() {
+    return this.cupom === 'desc' ? this.novoTotal : this.valorTotal;
+  }
 
 
 
@@ -113,4 +114,8 @@ removeCart(){
 
  }
 
+  createOrder() {
+
+
+  }
 }

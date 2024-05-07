@@ -3,6 +3,7 @@ import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { CartService } from '../../pages/shopping-card/services/cart.service';
 import { Router, RouterModule } from '@angular/router';
 import localePt from '@angular/common/locales/pt';
+import { LoginService } from '../../pages/login/services/login.service';
 
 registerLocaleData(localePt)
 @Component({
@@ -21,7 +22,7 @@ export class NavbarComponent {
 
 
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private router: Router, private cartService: CartService, private loginService: LoginService,) {}
 
   hideComponent(): boolean {
     const url = this.router.url;
@@ -43,5 +44,29 @@ export class NavbarComponent {
   ngOnInit(){
 
 
+  }
+
+  public getUserSession(): any {
+    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  }
+
+  public isLoggedIn(): boolean {
+    if (typeof window !== 'undefined') {
+    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
+    if (user) {
+      return true;
+    }
+  }
+    return false;
+  }
+
+  logout() {
+    this.loginService.logout(); // Chamando o mesmo método de logout no Service (loginService).
+    this.router.navigate(['/login']); // Redirecionar para a página de login ou home.
   }
 }

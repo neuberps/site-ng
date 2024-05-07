@@ -10,6 +10,9 @@ import { DetailsComponent } from '../details/details.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../shopping-card/services/cart.service';
+import { ShoppingCardComponent } from '../shopping-card/shopping-card.component';
+import { ServicePipe } from './product.pipe';
+import { Cart } from '../shopping-card/model/cart';
 
 
 @Component({
@@ -21,7 +24,10 @@ import { CartService } from '../shopping-card/services/cart.service';
     RouterLink,
     DetailsComponent,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ShoppingCardComponent,
+    ServicePipe,
+
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
@@ -32,6 +38,7 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   filteredService: Product[] = []
   category: string = '';
+  cart: Cart = new Cart;
 
 
   constructor(
@@ -39,6 +46,7 @@ export class ProductComponent implements OnInit {
     private service: ProductService,
     private router: Router,
     private cartService: CartService) {}
+
 
     ngOnInit(): void {
       const idCategory = this.route.snapshot.paramMap.get('idCategory')
@@ -55,10 +63,40 @@ export class ProductComponent implements OnInit {
       }
     }
 
+    onclickAdd(product: any) {
+      let cartProduct = this.cart.products.find(p => p.id === product.id);
+
+         if (cartProduct) {
+           cartProduct.quantity++;
+           this.cart.totalCart = cartProduct.price * cartProduct.quantity;
+           this.cartService.incrementarContador();
+         } else {
+           product.total = product.price;
+           this.cart.products.push(product);
+           this.cartService.incrementarContador();
+         }
+       }
+
+
+       onclickSub(product: any) {
+         let cartProduct = this.cart.products.find(p => p.id === product.id);
+
+         if (cartProduct && cartProduct.quantity > 1  ) {
+           cartProduct.quantity-- ;
+           this.cart.totalCart = cartProduct.price * cartProduct.quantity;
+           this.cartService.decrementarContador()
+         } else if (cartProduct && cartProduct.quantity == 1) {
+           this.cart.products = this.cart.products.filter(p => p.id !== product.id);
+           cartProduct.quantity-- ;
+           this.cartService.decrementarContador()
+           this.cartService.remove()
+         }
+       }
+
+
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
-
 
 }
 
