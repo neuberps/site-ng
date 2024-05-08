@@ -1,12 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+
+import { CommonModule, CurrencyPipe, registerLocaleData } from '@angular/common';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routes';
 import { HomeModule } from './home/home.module';
 import { NavbarModule } from './template/navbar.module';
-
+registerLocaleData(localePt);
 @NgModule({
   declarations: [],
   imports: [
@@ -17,5 +19,10 @@ import { NavbarModule } from './template/navbar.module';
     FormsModule,
     HomeModule,
   ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    CurrencyPipe,
+  ]
 })
 export class AppModule {}

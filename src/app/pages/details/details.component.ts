@@ -51,11 +51,11 @@ export class DetailsComponent implements OnInit {
        if (cartProduct) {
          cartProduct.quantity++;
          this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-         this.cartService.incrementarContador();
+
        } else {
          product.total = product.price;
          this.cart.products.push(product);
-         this.cartService.incrementarContador();
+
        }
      }
 
@@ -66,12 +66,10 @@ export class DetailsComponent implements OnInit {
        if (cartProduct && cartProduct.quantity > 1  ) {
          cartProduct.quantity-- ;
          this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-         this.cartService.decrementarContador()
+
        } else if (cartProduct && cartProduct.quantity == 1) {
          this.cart.products = this.cart.products.filter(p => p.id !== product.id);
          cartProduct.quantity-- ;
-         this.cartService.decrementarContador()
-         this.cartService.remove()
        }
      }
 }

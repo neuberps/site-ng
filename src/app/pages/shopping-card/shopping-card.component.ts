@@ -1,24 +1,19 @@
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from './services/cart.service';
-import { CommonModule, CurrencyPipe, NgFor, NgIf, registerLocaleData } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgFor, NgIf} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import localePt from '@angular/common/locales/pt';
+
 import { Cart } from './model/cart';
 import { Product } from '../product/model/product';
 import { OrderService } from '../order/service/order.service';
+import { AppModule } from '../../app.module';
 
-registerLocaleData(localePt);
 
 @Component({
   selector: 'app-shopping-card',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, RouterLink, CommonModule],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-    CurrencyPipe,
-  ],
+  imports: [NgFor, NgIf, FormsModule, RouterLink, CommonModule,AppModule],
   templateUrl: './shopping-card.component.html',
   styleUrl: './shopping-card.component.css',
 })
@@ -33,7 +28,6 @@ export class ShoppingCardComponent {
 
   constructor(
     private cartService: CartService,
-    private currencyPipe: CurrencyPipe,
     private OrderService: OrderService
   ) {}
 

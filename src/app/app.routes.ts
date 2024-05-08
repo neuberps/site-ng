@@ -82,7 +82,7 @@ export const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent,
-    // canActivate: [AuthGuardService]
+     canActivate: [AuthGuardService]
   },
 
   {

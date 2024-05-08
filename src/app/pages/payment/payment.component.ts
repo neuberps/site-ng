@@ -1,11 +1,11 @@
+import { AppModule } from './../../app.module';
 import localePt from '@angular/common/locales/pt';
 import {
   CommonModule,
-  CurrencyPipe,
   NgIf,
   registerLocaleData,
 } from '@angular/common';
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { Component} from '@angular/core';
 import { ServicesPayment } from './services/services.service';
 import { RouterModule, Router } from '@angular/router';
 import { Payment } from './model/payment';
@@ -16,9 +16,8 @@ import {
   FormBuilder,
   FormGroup,
   FormsModule,
-  NgModel,
   ReactiveFormsModule,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { LoginService } from '../login/services/login.service';
 
@@ -27,12 +26,7 @@ registerLocaleData(localePt);
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgIf, ReactiveFormsModule, FormsModule],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-    CurrencyPipe,
-  ],
+  imports: [CommonModule, RouterModule, NgIf, ReactiveFormsModule, FormsModule,AppModule],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css',
 })
