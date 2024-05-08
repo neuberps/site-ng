@@ -6,3 +6,10 @@
   background-color: #7fad39;
   color: white;
  }
+
+ .fixed-card {
+  position: fixed;
+  top: 0;
+  right: 305px;
+  z-index: 1;
+}

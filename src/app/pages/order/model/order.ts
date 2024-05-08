@@ -21,7 +21,7 @@
 export class Order {
   id!: string;
   client!: string;
-  orderItems!: OrderItem[]; // Alteração aqui
+  orderItems!: OrderItem[];
   orderTotal!: number;
   paymentInformation!: string;
   registryUser!: string;
@@ -38,6 +38,7 @@ export class Order {
 
 export interface OrderItem {
   item: string;
+  description: string;
   quantity: number;
   price: number;
 }
