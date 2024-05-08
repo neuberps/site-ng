@@ -1,4 +1,4 @@
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, HostListener, LOCALE_ID, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { OrderService } from '../order/service/order.service';
 import { Order } from '../order/model/order';
@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
+
+  isScrolled: boolean = false;
 
   orderId: string | null;
   order: Order | undefined;
@@ -56,5 +58,15 @@ export class OrderDetailComponent implements OnInit {
 
   updateFinalIndex(): void {
     this.indiceFinalDeI = this.order?.orderItems?.length || 0;
+  }
+
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.pageYOffset > 300) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
   }
 }

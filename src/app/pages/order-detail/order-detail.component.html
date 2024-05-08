@@ -11,18 +11,18 @@
     <div class="card-body align-items-center">
       <div class="row" *ngFor="let item of order?.orderItems; let i = index">
         <div class="col-md-11 m-4 mb-2 shadow p-0">
-          <div class="mb-3">
-            <div class="d-flex">
-              <p class="pt-4 px-4">{{ i + 1 }}</p>
-              <h6 class="card-text p-4">{{ item.item }}</h6>
+          <div class="mb-3 d-flex">
+            <div>
+               <h6 class="card-text px-4 pt-4">{{ i + 1 }}°- {{ item.item }}</h6>
+               <p class="card-text px-4">{{item.description}}</p>
             </div>
-            <div class="d-flex mx-4">
-              <span class="text-muted col-md-5">Preço: {{ item.price.toFixed(2) | currency}}</span>
-              <span class="text-muted col-md-5">Quantidade: {{ item.quantity }}</span>
-              <span class="text-muted col-md-5">Total: {{ (item.price * item.quantity).toFixed(2) | currency}}</span>
+            <span class="text-muted col-md-3 px-4 pt-4">Quant: {{ item.quantity }}</span>
+            <div class="row">
+              <span class="text-muted col-md-12 px-4 pt-4 text-end">Uni: {{ item.price.toFixed(2) | currency}}</span>
             </div>
           </div>
         </div>
+        <span class="text-muted col-md-11 text-end">Total: {{ (item.price * item.quantity).toFixed(2) | currency}}</span>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
         <div class="card-header">
           Valor do pedido
         </div>
-        <div class="card-body text-end ">
+        <div class="card-body text-end" [ngClass]="{'fixed-card': isScrolled}" >
           <h5 class="card-title my-4">Resumo Pagamento</h5>
           <p class="card-text">Quantidade de item(s) <span>: {{ indiceFinalDeI }}</span></p>
           <p class="card-text">Desconto <span>R$: {{ order.discountsAndFees }}</span></p>
