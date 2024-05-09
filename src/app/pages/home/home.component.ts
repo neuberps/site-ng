@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
 
     this.service.findByDiscount().subscribe(response => {
       this.products = response;
-      console.log(this.products);
+      //console.log(this.products);
     });
   }
 
