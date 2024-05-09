@@ -44,11 +44,6 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '**',
-    component: HomeComponent,
-  },
-
-  {
     path: 'product',
     component: ProductComponent,
   },
