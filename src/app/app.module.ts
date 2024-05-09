@@ -10,7 +10,6 @@ import pt from '@angular/common/locales/pt';
 registerLocaleData(pt);
 
 import { AppRoutingModule } from './app.routes';
-import { HomeModule } from './home/home.module';
 import { NavbarModule } from './template/navbar.module';
 registerLocaleData(localePt);
 @NgModule({
@@ -21,7 +20,6 @@ registerLocaleData(localePt);
     RouterModule,
     NavbarModule,
     FormsModule,
-    HomeModule,
 
   ],
   providers: [

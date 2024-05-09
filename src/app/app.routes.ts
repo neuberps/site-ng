@@ -39,6 +39,14 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: '**',
+    component: HomeComponent,
+  },
 
   {
     path: 'product',

@@ -1,6 +1,4 @@
 import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
-
-
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Product } from './model/product';
