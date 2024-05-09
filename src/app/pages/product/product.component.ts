@@ -1,11 +1,9 @@
 import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
-
-
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Product } from './model/product';
 import { ProductService } from './product.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { DetailsComponent } from '../details/details.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -47,7 +45,6 @@ export class ProductComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     private service: ProductService,
-    private router: Router,
     private cartService: CartService) {}
 
 
@@ -72,11 +69,11 @@ export class ProductComponent implements OnInit {
          if (cartProduct) {
            cartProduct.quantity++;
            this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-           this.cartService.incrementarContador();
+
          } else {
            product.total = product.price;
            this.cart.products.push(product);
-           this.cartService.incrementarContador();
+
          }
        }
 
@@ -86,21 +83,19 @@ export class ProductComponent implements OnInit {
          if (cartProduct && cartProduct.quantity > 1  ) {
            cartProduct.quantity-- ;
            this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-           this.cartService.decrementarContador()
+
          } else if (cartProduct && cartProduct.quantity == 1) {
            this.cart.products = this.cart.products.filter(p => p.id !== product.id);
            cartProduct.quantity-- ;
-           this.cartService.decrementarContador()
-           this.cartService.remove()
+
          }
        }
 
-      addToCart(product: any) {
-        this.cartService.addToCart(product);
-        this.cartService.incrementarContador();
-      }
-    }
 
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+  }
 
+}
 
 

@@ -39,6 +39,14 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: '**',
+    component: HomeComponent,
+  },
 
   {
     path: 'product',
@@ -69,7 +77,7 @@ export const routes: Routes = [
 
   {
     path: 'shopping-card',
-    component: ShoppingCardComponent,
+    component: ShoppingCardComponent
   },
 
   {
@@ -83,7 +91,7 @@ export const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent,
-    // canActivate: [AuthGuardService]
+     canActivate: [AuthGuardService]
   },
 
   {
