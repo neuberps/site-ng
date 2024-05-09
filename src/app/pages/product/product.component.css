@@ -2,16 +2,17 @@
   max-width: 400px;
 }
 
-.btn-add{
-  background-color: #7FAD39;
-  color: #f2f2f2;
+.btn btn-outline-success add{
+  background-color: #ffffff;
+  color: #7FAD39;
   width: 40px;
+
 
 }
 
-.btn-green{
-  background-color: #7FAD39;
-  color: #fafcf9;
+.btn btn-outline-success green{
+  background-color: #ffffff;
+  color: #7FAD39;
   width: 160px;
   transition: all 0.3s linear;
   transform: scale(1.1);
@@ -29,6 +30,25 @@
 
 .price{
   font-size:xx-large;
+}
+
+.price-hidden{
+  font-size:xx-large;
+  display: none;
+}
+
+.price-discount{
+  text-decoration:line-through;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 22px;
+  color: rgb(201, 3, 3);
+}
+
+.price-discount-hidden{
+  text-decoration:line-through;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
 }
 
 .quantity-field{
@@ -55,4 +75,24 @@
 
 .image-hover:hover{
   transform: scale(1.1)
+}
+
+.central-image{
+  background-size: 100px;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  font-weight: bold;
+  color: white;
+
+}
+
+.central-image h2{
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.hidden {
+  display:none;
 }

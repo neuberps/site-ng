@@ -4,6 +4,10 @@ import { CommonModule, CurrencyPipe, registerLocaleData } from '@angular/common'
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import pt from '@angular/common/locales/pt';
+
+
+registerLocaleData(pt);
 
 import { AppRoutingModule } from './app.routes';
 import { HomeModule } from './home/home.module';
@@ -18,6 +22,7 @@ registerLocaleData(localePt);
     NavbarModule,
     FormsModule,
     HomeModule,
+
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
@@ -25,4 +30,5 @@ registerLocaleData(localePt);
     CurrencyPipe,
   ]
 })
+
 export class AppModule {}

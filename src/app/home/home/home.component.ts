@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+
 import { Product } from '../../pages/product/model/product';
 import { Cart } from '../../pages/shopping-card/model/cart';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../pages/shopping-card/services/cart.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

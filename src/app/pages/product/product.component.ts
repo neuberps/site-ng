@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
 
 
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Product } from './model/product';
 import { ProductService } from './product.service';
 import { RouterLink } from '@angular/router';
@@ -13,6 +13,7 @@ import { CartService } from '../shopping-card/services/cart.service';
 import { ShoppingCardComponent } from '../shopping-card/shopping-card.component';
 import { ServicePipe } from './product.pipe';
 import { Cart } from '../shopping-card/model/cart';
+import { HomeComponent } from '../home/home.component';
 import { AppModule } from '../../app.module';
 
 
@@ -28,8 +29,8 @@ import { AppModule } from '../../app.module';
     FormsModule,
     ShoppingCardComponent,
     ServicePipe,
+    HomeComponent,
     AppModule
-
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
@@ -50,12 +51,12 @@ export class ProductComponent implements OnInit {
 
 
     ngOnInit(): void {
-      const idCategory = this.route.snapshot.paramMap.get('idCategory')
+      const idCategory = this.route.snapshot.paramMap.get('idCategory');
       if(idCategory){
         this.service.findByIdCategory(idCategory).subscribe(response => {
           this.products = response;
           this.filteredService = this.products;
-        })
+        });
       } else {
         this.service.findAll().subscribe(response => {
           this.products = response;
@@ -77,7 +78,6 @@ export class ProductComponent implements OnInit {
 
          }
        }
-
 
        onclickSub(product: any) {
          let cartProduct = this.cart.products.find(p => p.id === product.id);
