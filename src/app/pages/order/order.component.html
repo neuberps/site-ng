@@ -1,105 +1,50 @@
-<div class="container">
-  <div class="row">
-
+<div class="container shadow p-0">
+  <!-- <div class="row"> -->
     <table class="table table-sm table-condensed table-hover">
       <thead>
-        <tr>
-          <th>Pedido</th>
-          <th>Valor</th>
-          <th>Status</th>
-          <th>Mensagem</th>
+        <tr >
+          <th class="tableTitle">Pedido</th>
+          <!-- <th class="tableTitle">Valor</th> -->
+          <th class="tableTitle">Status</th>
+          <th class="tableTitle col-md-5">Mensagem</th>
         </tr>
       </thead>
-      <tbody class="cursor-pointer" routerLink="/order-detail">
-        <tr>
-          <!-- <tr *ngFor="let order of orders"></tr> -->
+      <tbody>
+        <tr *ngFor="let order of ordersReversed; let i = index" class="cursor-pointer" [routerLink]="'/order-detail/' + order.id">
           <td>
             <div>
-              OGANI-3456543-00001
+              OGANI-3456543-0000{{ valor - i}}
             </div>
             <div class="text-order">
-              08/01/2024
+              {{ order.created | date:'dd/MM/yyyy' }}
             </div>
           </td>
-          <td>R$ 70,00</td>
+          <!-- <td>{{ order.orderTotal | currency }}</td> -->
           <td>
             <div>
-              <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega"
-                class="order-icon"><span class="text-order"> Produto enviado</span>
+              <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega" class="order-icon">
+              <span class="text-order"> {{ order.orderStatus }}</span>
             </div>
             <div>
               <a href="https://rastreamento.correios.com.br/app/index.php" class="text-order">Acompanhar entrega</a>
             </div>
           </td>
-          <td class="text-order">Seu pedido foi enviado! Obrigado pela confiança</td>
+          <td class="text-order col-md-4">
+            <ng-container *ngIf="order.orderStatus === 'Aguardando análise'">
+              Aguardando análise de crédito, seu pedido será enviado até 1 dia útil após a confirmação.
+            </ng-container>
+            <ng-container *ngIf="order.orderStatus === 'Processado'">
+              Seu pedido está aguardando preparação, obrigado pela confiança.
+            </ng-container>
+            <ng-container *ngIf="order.orderStatus === 'Finalizado'">
+              Produto foi entregue pela transportadora ou finalizado por um de nossos profissionais de serviço.
+            </ng-container>
+          </td>
         </tr>
-        <tr>
-          <td>
-            <div>
-              OGANI-3456543-00002
-            </div>
-            <div class="text-order">
-              08/01/2024
-            </div>
-          </td>
-          <td>R$ 1070,00</td>
-          <td>
-            <div>
-              <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega"
-                class="order-icon"><span class="text-order"> Produto enviado</span>
-            </div>
-            <div>
-              <a href="https://rastreamento.correios.com.br/app/index.php" class="text-order">Acompanhar entrega</a>
-            </div>
-          </td>
-          <td class="text-order">Seu pedido foi enviado! Obrigado pela confiança</td>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              OGANI-3456543-00003
-            </div>
-            <div class="text-order">
-              08/01/2024
-            </div>
-          </td>
-          <td>R$ 170,00</td>
-          <td>
-            <div>
-              <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega"
-                class="order-icon"><span class="text-order"> Produto enviado</span>
-            </div>
-            <div>
-              <a href="https://rastreamento.correios.com.br/app/index.php" class="text-order">Acompanhar entrega</a>
-            </div>
-          </td>
-          <td class="text-order">Seu pedido foi enviado! Obrigado pela confiança</td>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              OGANI-3456543-00004
-            </div>
-            <div class="text-order">
-              08/01/2024
-            </div>
-          </td>
-          <td>R$ 500,00</td>
-          <td>
-            <div>
-              <img src="../../../assets/img/order-component/truck-solid.svg" alt="Icone entrega"
-                class="order-icon"><span class="text-order"> Produto enviado</span>
-            </div>
-            <div>
-              <a href="https://rastreamento.correios.com.br/app/index.php" class="text-order">Acompanhar entrega</a>
-            </div>
-          </td>
-          <td class="text-order">Seu pedido foi enviado! Obrigado pela confiança</td>
-        </tr>
-
       </tbody>
+
     </table>
-  </div>
+  <!-- </div> -->
 
   <!-- <div id="modalDel" class="modal fade" role="dialog">
         <div class="modal-dialog">

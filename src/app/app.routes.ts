@@ -16,10 +16,6 @@ import { OrderComponent } from './pages/order/order.component';
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
 
   {
     path: 'login',
@@ -38,6 +34,16 @@ export const routes: Routes = [
 
   },
  */
+
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+
 
   {
     path: 'product',
@@ -68,7 +74,7 @@ export const routes: Routes = [
 
   {
     path: 'shopping-card',
-    component: ShoppingCardComponent,
+    component: ShoppingCardComponent
   },
 
   {
@@ -82,7 +88,7 @@ export const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent,
-    canActivate: [AuthGuardService]
+     canActivate: [AuthGuardService]
   },
 
   {
@@ -93,14 +99,20 @@ export const routes: Routes = [
   {
     path: 'order',
     component: OrderComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
 
   {
     path: 'order-detail',
     component: OrderDetailComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
+
+  {
+    path: 'order-detail/:id',
+    component: OrderDetailComponent
+  },
+
 ];
 
 @NgModule({

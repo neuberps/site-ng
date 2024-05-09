@@ -1,18 +1,25 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, CurrencyPipe, registerLocaleData } from '@angular/common';
+import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, HostListener  } from '@angular/core';
 import { CartService } from '../../pages/shopping-card/services/cart.service';
 import { Router, RouterModule } from '@angular/router';
+import localePt from '@angular/common/locales/pt';
 import { LoginService } from '../../pages/login/services/login.service';
 
+registerLocaleData(localePt)
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterModule],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    CurrencyPipe
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  contador: number = 0;
+
 
   constructor(private router: Router, private cartService: CartService, private loginService: LoginService,) {}
 
@@ -26,10 +33,16 @@ export class NavbarComponent {
     );
   }
 
-  ngOnInit() {
-    this.cartService.currentCount.subscribe((value) => {
-      this.contador = value;
-    });
+  getContador():number{
+   return this.cartService.getCartSession().totalCart;
+  }
+  getValor():number{
+    return this.cartService.valorTotal;
+   }
+
+  ngOnInit(){
+
+
   }
 
   public getUserSession(): any {
@@ -55,4 +68,6 @@ export class NavbarComponent {
     this.loginService.logout(); // Chamando o mesmo método de logout no Service (loginService).
     this.router.navigate(['/login']); // Redirecionar para a página de login ou home.
   }
+
+
 }

@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
-
+import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Product } from './model/product';
 import { ProductService } from './product.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { DetailsComponent } from '../details/details.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +11,8 @@ import { CartService } from '../shopping-card/services/cart.service';
 import { ShoppingCardComponent } from '../shopping-card/shopping-card.component';
 import { ServicePipe } from './product.pipe';
 import { Cart } from '../shopping-card/model/cart';
+import { HomeComponent } from '../home/home.component';
+import { AppModule } from '../../app.module';
 
 
 @Component({
@@ -27,7 +27,8 @@ import { Cart } from '../shopping-card/model/cart';
     FormsModule,
     ShoppingCardComponent,
     ServicePipe,
-
+    HomeComponent,
+    AppModule
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
@@ -44,17 +45,16 @@ export class ProductComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     private service: ProductService,
-    private router: Router,
     private cartService: CartService) {}
 
 
     ngOnInit(): void {
-      const idCategory = this.route.snapshot.paramMap.get('idCategory')
+      const idCategory = this.route.snapshot.paramMap.get('idCategory');
       if(idCategory){
         this.service.findByIdCategory(idCategory).subscribe(response => {
           this.products = response;
           this.filteredService = this.products;
-        })
+        });
       } else {
         this.service.findAll().subscribe(response => {
           this.products = response;
@@ -69,14 +69,13 @@ export class ProductComponent implements OnInit {
          if (cartProduct) {
            cartProduct.quantity++;
            this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-           this.cartService.incrementarContador();
+
          } else {
            product.total = product.price;
            this.cart.products.push(product);
-           this.cartService.incrementarContador();
+
          }
        }
-
 
        onclickSub(product: any) {
          let cartProduct = this.cart.products.find(p => p.id === product.id);
@@ -84,19 +83,17 @@ export class ProductComponent implements OnInit {
          if (cartProduct && cartProduct.quantity > 1  ) {
            cartProduct.quantity-- ;
            this.cart.totalCart = cartProduct.price * cartProduct.quantity;
-           this.cartService.decrementarContador()
+
          } else if (cartProduct && cartProduct.quantity == 1) {
            this.cart.products = this.cart.products.filter(p => p.id !== product.id);
            cartProduct.quantity-- ;
-           this.cartService.decrementarContador()
-           this.cartService.remove()
+
          }
        }
 
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    this.cartService.incrementarContador();
   }
 
 }
