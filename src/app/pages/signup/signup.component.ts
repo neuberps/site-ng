@@ -47,8 +47,6 @@ export class SignupComponent {
     })
   }
 
-
-
   submit(){
     this.loginService.signup(this.signupForm.value.name, this.signupForm.value.email, this.signupForm.value.username, this.signupForm.value.password).subscribe({
       next: () => this.toastService.success("Cadastro feito com sucesso!"),

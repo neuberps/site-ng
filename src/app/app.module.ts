@@ -1,10 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeModule } from './home/home.module';
-import { AppRoutingModule } from './app.routes';
-import { RouterModule } from '@angular/router';
-import { NavbarModule } from './template/navbar.module';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import pt from '@angular/common/locales/pt';
@@ -13,6 +10,9 @@ import { registerLocaleData } from '@angular/common';
 
 registerLocaleData(pt);
 
+import { AppRoutingModule } from './app.routes';
+import { HomeModule } from './home/home.module';
+import { NavbarModule } from './template/navbar.module';
 
 @NgModule({
   declarations: [],
@@ -31,4 +31,4 @@ registerLocaleData(pt);
   ]
 })
 
-export class AppModule { }
+export class AppModule {}
