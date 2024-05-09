@@ -30,6 +30,10 @@ export class ProductService {
     return this.http.get<Product[]> (`http://localhost:9006/api/products/findByIdCategory/${idCategory}`);
   }
 
+  findByDiscount(): Observable<Product[]>{
+    return this.http.get<Product[]> ('http://localhost:9006/api/products/findByDiscount/');
+  }
+
   deleteId( product : Product ) : Observable<any> {
     return this.http.delete<any>(`http://localhost:9006/api/products/${product.id}`);
   }
