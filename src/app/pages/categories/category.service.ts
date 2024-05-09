@@ -17,11 +17,11 @@ export class CategoryService {
     return this.http.get<Category[]>('http://localhost:9001/api/category/findAll');
   }
 
-  listServices() {
+  findByTypeService() {
     return this.http.get<Category[]>('http://localhost:9001/api/category/findByTypeService');
   }
 
-  listProducts() {
+  findByTypeProducts() {
     return this.http.get<Category[]>('http://localhost:9001/api/category/findByTypeProduct');
   }
 
