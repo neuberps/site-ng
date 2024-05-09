@@ -5,6 +5,7 @@ export class Product {
   description: string='';
   price: number = 0;
   idCategory: string='';
+  discount: number = 0;
   brand: string='';
   stock: string='';
   supplier: string='';
