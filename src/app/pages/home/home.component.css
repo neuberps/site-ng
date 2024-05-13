@@ -1,5 +1,5 @@
 .container img {
-  max-width: 400px;
+  max-width: 100%;
 }
 
 .container-shopping {
@@ -69,10 +69,21 @@
   justify-content: center;
 }
 
-#field{
-  display: flex;
-}
-
 #bannerService{
   cursor: pointer;
+}
+#btnPrice{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#btnQuantity{
+  width: 30px;
+  text-align: left;
+  margin: 0;
+
 }
