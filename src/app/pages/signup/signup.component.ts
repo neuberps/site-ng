@@ -48,14 +48,19 @@ export class SignupComponent {
   }
 
   submit(){
+    setTimeout(() => {
     this.loginService.signup(this.signupForm.value.name, this.signupForm.value.email, this.signupForm.value.username, this.signupForm.value.password).subscribe({
-      next: () => this.toastService.success("Cadastro feito com sucesso!"),
+      next: () => {
+        this.toastService.success("Cadastro feito com sucesso!");
+        this.router.navigate(["home"]);
+      },
       error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
-    })
+    });
+   },  3000); // 3000 milissegundos = 3 segundos
   }
 
   navigate(){
-    this.router.navigate(["login"])
+    this.router.navigate(["login"]);
   }
 
 }

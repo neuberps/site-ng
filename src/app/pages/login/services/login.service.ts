@@ -11,9 +11,8 @@ export class LoginService {
 
   apiUrl: string = "http://localhost:9008/auth";
 
-  // Chaves estáticas da sessão
+  // Chave estática da sessão
   static SESSION_USER_KEY = 'session_user';
-  static SESSION_TOKEN_KEY = 'session_token';
 
   constructor( private httpClient: HttpClient) { }
 
@@ -31,7 +30,7 @@ export class LoginService {
   login(email: string, password: string){
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/login", { email, password }).pipe(
       tap((value) => {
-        this.saveUserDataInSession(value.token, value.user);
+        this.saveUserDataInSession(value.user);
     })
     )
   }
@@ -40,16 +39,14 @@ export class LoginService {
   signup(name: string, email: string, username: string, password: string){
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/register", { name, email, username, password }).pipe(
       tap((value) => {
-        this.saveUserDataInSession(value.token, value.user);
+        this.saveUserDataInSession(value.user);
     })
     )
   }
 
   // Método privado (Armazena os dados relevantes na sessão do usuário)
-  private saveUserDataInSession(token: string, user: User) {
-    sessionStorage.setItem(LoginService.SESSION_TOKEN_KEY, token);
+  private saveUserDataInSession(user: User) {
     sessionStorage.setItem(LoginService.SESSION_USER_KEY, JSON.stringify(user));
-
   }
 
   // Método que verifica o usuário na sessão e retorna após converter de Json para Objeto:
@@ -75,7 +72,6 @@ export class LoginService {
 
   logout() {
     sessionStorage.removeItem(LoginService.SESSION_USER_KEY); // Limpando os dados de usuário da sessão.
-    sessionStorage.removeItem(LoginService.SESSION_TOKEN_KEY); // Limpando o token da sessão.
   }
 
   // Método para atualizar a página

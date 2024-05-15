@@ -41,28 +41,14 @@ export class NavbarComponent {
 
   }
 
-  ngOnInit(){
-
-
-  }
+  ngOnInit(){}
 
   public getUserSession(): any {
-    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
-    if (user) {
-      return JSON.parse(user);
-    }
-
-    return {};
+    return this.loginService.getUserSession();
   }
 
   public isLoggedIn(): boolean {
-    if (typeof window !== 'undefined') {
-    const user = window.sessionStorage.getItem(LoginService.SESSION_USER_KEY);
-    if (user) {
-      return true;
-    }
-  }
-    return false;
+    return this.loginService.isLoggedIn();
   }
 
   logout() {
