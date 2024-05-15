@@ -15,10 +15,18 @@
             </thead>
             <tbody>
               <tr *ngFor="let product of cart.products">
-                <td class="shoping__cart__item">
-                  <img src="/assets/img/market/{{product.image}}" class="w-25" alt="">
-                  <h5 class="fw-bold">{{product.name}}</h5>
-              </td>
+                <td class=" d-flex align-items-center p-2">
+                  <a class="card shadow w-25 me-5  ">
+                    <img
+                      src="/assets/img/market/{{ product.image }}"
+                      class="rounded p-1 m-0  "
+                      alt=""
+                    />
+                  </a>
+                  <span >
+                  <h5 class="fw-bold ">{{ product.name }}</h5>
+                </span>
+                </td>
                 <td class="shoping__cart__price">
                   {{ product.price | currency }}
                 </td>
@@ -35,7 +43,7 @@
                     </div>
 
                     <div class="col-2 text-center">
-                      <p class=" pt-1 pb-2">{{ product.quantity }}</p>
+                      <p class="pt-1 pb-2">{{ product.quantity }}</p>
                     </div>
 
                     <div class="col">
@@ -77,9 +85,13 @@
         <div class="shoping__cart__btns">
           <a routerLink="/product" class="primary-btn cart-btn"
             >CONTINUAR COMPRANDO</a
-          > <a routerLink="/product" class="primary-btn cart-btn ms-3"
-          (click)="removeCart()" >Esvaziar carrinho</a
-        >
+          >
+          <a
+            routerLink="/product"
+            class="primary-btn cart-btn ms-3"
+            (click)="removeCart()"
+            >Esvaziar carrinho</a
+          >
         </div>
       </div>
       <div class="col-lg-6">

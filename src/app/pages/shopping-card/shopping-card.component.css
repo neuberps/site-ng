@@ -1872,7 +1872,6 @@ ol {
 		position: relative;
 		left: 0;
 		top: 0;
-		-webkit-transform: translateY(0);
 	}
 	.categories__slider.owl-carousel .owl-nav button.owl-next {
 		right: -10px;
@@ -2148,3 +2147,4 @@ ol {
 		font-size: 24px;
 	}
 }
+
