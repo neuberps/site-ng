@@ -38,7 +38,8 @@ export class NavbarComponent {
   }
   getValor():number{
     return this.cartService.valorTotal;
-   }
+
+  }
 
   ngOnInit(){
 
