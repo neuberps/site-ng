@@ -14,9 +14,9 @@ export class AuthGuardService implements CanActivate{
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const sessionToken = sessionStorage.getItem(LoginService.SESSION_TOKEN_KEY);
+    const sessionUser = sessionStorage.getItem(LoginService.SESSION_USER_KEY);
 
-    if (sessionToken) {
+    if (sessionUser) {
       return true;
     } else {
       this.router.navigate(['/login']);
